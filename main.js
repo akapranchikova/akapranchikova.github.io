@@ -459,7 +459,7 @@
         val = val < 1 ? 1 : val;
         animation = setInterval(function () {
             const coef = maxYCurr > newY ? -1 : 1;
-            maxYCurr += coef * val * 3;
+            maxYCurr += coef * val * 3 * 2;
             if (coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr) {
                 maxYCurr = newY;
                 clearInterval(animation);
@@ -467,7 +467,7 @@
             } else {
                 drawGraphic();
             }
-        }, speed);
+        }, 0.0000001);
     }
 
     ['resize', 'orientationchange'].forEach(event => {
