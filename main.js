@@ -59,7 +59,7 @@
     });
 
     function initFirst() {
-
+        names.innerHTML = '';
         minX = data.columns[0][1];
         maxX = data.columns[0][data.columns[0].length - 1];
 
