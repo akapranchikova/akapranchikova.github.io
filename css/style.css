@@ -1,0 +1,125 @@
+body {
+    /*margin: 20px;*/
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes opacity-change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.graph line{
+    transition: opacity 300ms linear;
+    opacity: 1;
+}
+
+.graph line.hide{
+    opacity: 0;
+}
+
+svg {
+    overflow: hidden;
+}
+
+svg#svg-graphic {
+    width: 100%;
+    height: 60vh;
+    background-image: linear-gradient(#eee .1em, transparent .1em);
+}
+
+line {
+    stroke-width: 2;
+}
+
+text {
+    font-weight: bold;
+    fill: #b1b1b1;
+}
+
+.axis text{
+    animation: opacity-change 100ms linear;
+}
+
+#names {
+    display: flex;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+g.area {
+    pointer-events: all;
+}
+
+.name .icon {
+    margin-right: 10px;
+    height: 26px;
+    border-radius: 50%;
+    width: 26px;
+}
+
+.name .icon.active::before {
+    transform: scale(1);
+}
+
+.name .icon::before {
+    transition: transform 300ms linear;
+    transform: scale(0);
+    content: '';
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'><path stroke='none' fill='white' d='M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.tooltip {
+    font-weight: bold;
+    padding: 10px;
+    width: 130px;
+    height: auto;
+    /*background: #ffffff;*/
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.tooltip .wrap-values {
+    margin-top: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.tooltip .wrap-values .value {
+    margin-right: 10px;
+}
+
+.but-switch {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #3580f0;
+}
