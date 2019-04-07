@@ -449,7 +449,7 @@
     }
 
     function startAnim() {
-        // clearInterval(animation);
+        clearInterval(animation);
         animation = null;
         const speed = 1 / Math.abs(maxYCurr - newY);
         let val = 1;
@@ -457,17 +457,17 @@
             val = Math.floor(maxY / heightWindow * 0.8);
         }
         val = val < 1 ? 1 : val;
-        requestAnimationFrame(function () {
+        animation = setInterval(function () {
             const coef = maxYCurr > newY ? -1 : 1;
             maxYCurr += coef * val * 3 * 2;
             if (coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr) {
                 maxYCurr = newY;
-                // clearInterval(animation);
-                // animation = null;
+                clearInterval(animation);
+                animation = null;
             } else {
                 drawGraphic();
             }
-        }, 0.0000001);
+        }, 10);
     }
 
     ['resize', 'orientationchange'].forEach(event => {
