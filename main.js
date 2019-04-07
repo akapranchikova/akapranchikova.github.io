@@ -457,17 +457,36 @@
             val = Math.floor(maxY / heightWindow * 0.8);
         }
         val = val < 1 ? 1 : val;
-        animation = setInterval(function () {
-            const coef = maxYCurr > newY ? -1 : 1;
-            maxYCurr += coef * val * 3 * 2;
-            if (coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr) {
-                maxYCurr = newY;
-                clearInterval(animation);
-                animation = null;
-            } else {
-                drawGraphic();
+
+        animate({
+            duration: 1000,
+            timing(timeFraction) {
+                const coef = maxYCurr > newY ? -1 : 1;
+                maxYCurr += coef * val * 3 * 2;
+                console.log(timeFraction);
+                return coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr;
+            },
+            draw(progress) {
+                // console.log(progress);
+                if (!progress) {
+                    drawGraphic();
+                }
+                // elem.style.width = progress * 100 + '%';
             }
-        }, 10);
+        });
+
+
+        // animation = setInterval(function () {
+        //     const coef = maxYCurr > newY ? -1 : 1;
+        //     maxYCurr += coef * val * 3 * 2;
+        //     if (coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr) {
+        //         maxYCurr = newY;
+        //         clearInterval(animation);
+        //         animation = null;
+        //     } else {
+        //         drawGraphic();
+        //     }
+        // }, 10);
     }
 
     ['resize', 'orientationchange'].forEach(event => {
@@ -490,5 +509,33 @@
         }
         drawControl();
         document.documentElement.style.backgroundColor = color;
+    }
+
+    function animate({timing, draw, duration}) {
+
+        let start = performance.now();
+
+        requestAnimationFrame(function animate(time) {
+            // const coef = maxYCurr > newY ? -1 : 1;
+            // maxYCurr += coef * val * 3 * 2;
+
+
+            // console.log('time', time);
+            // timeFraction goes from 0 to 1
+            // let timeFraction = (time - start) / duration;
+            // if (timeFraction > 1) timeFraction = 1;
+            //
+            // // calculate the current animation state
+            let progress = timing();
+
+            draw(progress); // draw it
+            // console.log('timeFraction',timeFraction);
+
+            // if (!(coef > 0 && newY <= maxYCurr || coef < 0 && newY >= maxYCurr)) {
+            // if (timeFraction < 1) {
+                // requestAnimationFrame(animate);
+            // }
+
+        });
     }
 }();
