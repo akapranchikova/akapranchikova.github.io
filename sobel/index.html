@@ -5,7 +5,7 @@
     <title>Title</title>
 
     <style>
-        canvas {
+        canvas.hide {
             display: none;
         }
         /*.input-file {*/
@@ -34,12 +34,13 @@
     </style>
 </head>
 <body>
-<canvas id="canvas"></canvas>
-<canvas id="canvas-sobel"></canvas>
 <input class="input-file" type="file" id="file">
 <div class="button-file" onclick="file.click()">
     Загрузить фотографию
 </div>
+<canvas id="canvas" class="hide"></canvas>
+<canvas id="canvas-sobel"></canvas>
+
 <script src="sobel.js"></script>
 <script src="script.js"></script>
 </body>
