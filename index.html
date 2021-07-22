@@ -4,15 +4,93 @@
     <meta charset="UTF-8">
     <title>Alice Kapranchikova</title>
     <style>
-        button {
-
+        html {
+            font-family: Inter, sans-serif;
+            --main-text-color: #ffffff;
+            --main-background-color: #E7E5DD;
+            --main-button-color: #56514B;
+            --second-text-color: #000000;
+            overflow: hidden;
+            background: var(--main-background-color);
         }
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        a.button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-decoration: none;
+            margin: 16px;
+            color: #ffffff;
+            background: var(--main-button-color);
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 24px;
+            margin-top: 56px;
+        }
+        .head::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            height: 110px;
+            background: var(--main-button-color);
+            left: 0;
+            z-index: -1;
+            right: 0;
+        }
+        .head__info {
+            font-size: 13px;
+            color: var(--main-button-color);
+        }
+        .profile-img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            border: 2px solid var(--main-button-color);
+        }
+        a.inst {
+            text-decoration: none;
+            color: var(--main-button-color);
+        }
+        /*.wrapper::before {*/
+        /*    position: absolute;*/
+        /*    content: '';*/
+        /*    display: block;*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    transform: rotate(45deg);*/
+        /*    left: 0;*/
+        /*    bottom: 0;*/
+        /*    background: var(--main-button-color);*/
+        /*}*/
     </style>
 </head>
 <body>
-
-<!--<button class="">Карта мозаик</button>-->
-<!--<button class="">Instagram</button>-->
+<div class="wrapper">
+    <div class="head">
+        <div  class="profile-img">
+            <img src="./2021-07-22%2012.23.07.jpg" alt="">
+        </div>
+        <div class="head__title">Алиса Капранчикова</div>
+        <div class="head__info">юный программист и художник</div>
+        <div class="head__info"><a class="inst" href="https://instagram.com/al_kachino_art">@al_kachino_art</a></div>
+    </div>
+    <a class="button" href="https://akapranchikova.github.io/mosaic/">Карта мозаик</a>
+    <a class="button" href="http://tv-gubernia.ru/programmy/efirnye_programmy/vecher_vmeste/vecher_vmeste_20072021/">Интервью</a>
+</div>
 
 </body>
 </html>
