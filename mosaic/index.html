@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Мозаики</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
     <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
@@ -12,15 +13,32 @@
         html, body {
             margin: 0;
             padding: 0;
+            font-family: Inter, sans-serif;
         }
         #mapid {
+            height: 100vh;
+            width: 100%;
+        }
+        .main {
+            display: flex;
+        }
+        .aside {
+            width: 30%;
+            padding: 20px;
+            box-sizing: border-box;
+
             height: 100vh;
         }
     </style>
 
 </head>
 <body onload="init()">
-<div id="mapid"></div>
+<div class="main">
+<!--    <div class="aside">-->
+<!--        Карта мозаики, выберите маркер-->
+<!--    </div>-->
+    <div id="mapid"></div>
+</div>
 
 <script src="main.js"></script>
 </body>

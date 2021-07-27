@@ -86,7 +86,12 @@ class Map {
     drawMarkers() {
         mosaicMarkers.forEach(marker => {
             const newMarker = L.marker(marker.coords).addTo(this.map);
-            newMarker.bindPopup(marker.popupText);
+            newMarker.on('click', () => {
+                console.log(document.getElementsByClassName('aside')[0], marker)
+                document.getElementsByClassName('aside')[0].innerHTML = marker.popupText;
+            });
+            // newMarker.bindPopup(marker.popupText);
+
         })
     }
 }
