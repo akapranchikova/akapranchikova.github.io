@@ -59,6 +59,49 @@ const mosaicMarkers = [
         coords: [51.67233857452443, 39.199979780150905],
         popupText: 'Папоротник'
     },
+
+
+
+    {
+        coords: [51.670377545356764, 39.190699659957325],
+        popupText: 'Пчелы'
+    },
+    {
+        coords: [51.664914524319464, 39.19884252663906],
+        popupText: 'Яичница'
+    },
+    {
+        coords: [51.665672201281964, 39.19950097293623],
+        popupText: 'Таракан'
+    },
+    {
+        coords: [51.6658235920637, 39.19935345144041],
+        popupText: 'Марио'
+    },
+    {
+        coords: [51.666202887749236, 39.202910121166504],
+        popupText: 'Папоротник 2'
+    },
+    {
+        coords: [51.669105156554934, 39.20219600200654],
+        popupText: 'Акула'
+    },
+    {
+        coords: [51.67141689449062, 39.20254540491442],
+        popupText: 'Рыбы'
+    },
+    {
+        coords: [51.67241209706212, 39.20243740081788],
+        popupText: 'Ракета'
+    },
+    // {
+    //     coords: [51.67233857452443, 39.199979780150905],
+    //     popupText: 'Папоротник'
+    // },
+    // {
+    //     coords: [51.67233857452443, 39.199979780150905],
+    //     popupText: 'Папоротник'
+    // },
 ];
 
 
@@ -73,9 +116,9 @@ class Map {
     createMap() {
         this.map = L.map('mapid').setView([51.6683, 39.1919], 14);
 
-        // this.map.on('click', (ev) => {
-        //     console.log(ev.latlng)
-        // });
+        this.map.on('click', (ev) => {
+            // console.log(ev.latlng)
+        });
 
         var gl = L.mapboxGL({
             attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
@@ -86,11 +129,10 @@ class Map {
     drawMarkers() {
         mosaicMarkers.forEach(marker => {
             const newMarker = L.marker(marker.coords).addTo(this.map);
-            newMarker.on('click', () => {
-                console.log(document.getElementsByClassName('aside')[0], marker)
-                document.getElementsByClassName('aside')[0].innerHTML = marker.popupText;
-            });
-            // newMarker.bindPopup(marker.popupText);
+            // newMarker.on('click', () => {
+            //     document.getElementsByClassName('aside')[0].innerHTML = marker.popupText;
+            // });
+            newMarker.bindPopup(marker.popupText);
 
         })
     }
