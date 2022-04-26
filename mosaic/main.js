@@ -130,6 +130,30 @@ const mosaicMarkers = [
         coords: [51.6643834039455, 39.21128744531416],
         popupText: 'Таракан'
     },
+    {
+        coords: [51.67300426011623, 39.18474018573762],
+        popupText: 'Слова'
+    },
+    {
+        coords: [ 51.67428666373837, 39.189204114954926],
+        popupText: 'Радуга'
+    },
+    {
+        coords: [ 51.67223695241179, 39.19073187593313],
+        popupText: 'Любовь'
+    },
+    {
+        coords: [ 51.67133870930307, 39.188682668245754],
+        popupText: 'Кринж'
+    },
+    {
+        coords: [51.67145182237857, 39.18852173570486],
+        popupText: 'Мышь'
+    },
+    {
+        coords: [51.66871755667519, 39.20455366373063],
+        popupText: 'Мишка'
+    },
 ];
 
 
@@ -145,7 +169,7 @@ class Map {
         this.map = L.map('mapid').setView([51.6683, 39.1919], 14);
 
         this.map.on('click', (ev) => {
-            // console.log(ev.latlng)
+            console.log(ev.latlng)
         });
 
         var gl = L.mapboxGL({
