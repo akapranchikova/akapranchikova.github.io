@@ -169,11 +169,11 @@ class Map {
         this.map = L.map('mapid').setView([51.6683, 39.1919], 14);
 
         this.map.on('click', (ev) => {
-            console.log(ev.latlng)
+            // console.log(ev.latlng)
         });
 
         var gl = L.mapboxGL({
-            attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+            attribution: "\u003ca href=\"https://www.instagram.com/al_kachino_art/\" target=\"_blank\"\u003e\u0026copy; Instagram\u003c/a\u003e  ",
             style: 'https://api.maptiler.com/maps/streets/style.json?key=gsrsyy45DnpndozB6p1n'
         }).addTo(this.map);
     }
