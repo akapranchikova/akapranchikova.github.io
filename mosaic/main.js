@@ -16,7 +16,7 @@ const mosaicMarkers = [
         popupText: 'Черепашка'
     },
     {
-        coords: [ 51.65782158862597, 39.18915701357037],
+        coords: [51.65782158862597, 39.18915701357037],
         popupText: 'Лиса'
     },
     {
@@ -52,14 +52,13 @@ const mosaicMarkers = [
         popupText: 'Яблоко'
     },
     {
-        coords: [ 51.66196694696772, 39.19144453628178],
+        coords: [51.66196694696772, 39.19144453628178],
         popupText: 'Крокодил'
     },
     {
         coords: [51.67233857452443, 39.199979780150905],
         popupText: 'Папоротник'
     },
-
 
 
     {
@@ -107,7 +106,7 @@ const mosaicMarkers = [
         popupText: 'Папоротник 3'
     },
     {
-        coords: [ 51.669227847990165,  39.195093081325474],
+        coords: [51.669227847990165, 39.195093081325474],
         popupText: 'Гусь'
     },
     {
@@ -135,15 +134,15 @@ const mosaicMarkers = [
         popupText: 'Слова'
     },
     {
-        coords: [ 51.67428666373837, 39.189204114954926],
+        coords: [51.67428666373837, 39.189204114954926],
         popupText: 'Радуга'
     },
     {
-        coords: [ 51.67223695241179, 39.19073187593313],
+        coords: [51.67223695241179, 39.19073187593313],
         popupText: 'Любовь'
     },
     {
-        coords: [ 51.67133870930307, 39.188682668245754],
+        coords: [51.67133870930307, 39.188682668245754],
         popupText: 'Кринж'
     },
     {
@@ -160,9 +159,16 @@ const mosaicMarkers = [
 class Map {
 
     map;
+    markersArr = [];
+    myIcon = L.divIcon({className: 'my-div-icon'});
+    myIconClick = L.divIcon({className: 'my-div-icon-click'});
+
 
     constructor() {
         this.createMap();
+        navigator.geolocation.getCurrentPosition((llocation) => {
+            console.log(llocation.coords)
+        });
     }
 
     createMap() {
@@ -179,14 +185,26 @@ class Map {
     }
 
     drawMarkers() {
+
+
         mosaicMarkers.forEach(marker => {
             const newMarker = L.marker(marker.coords).addTo(this.map);
-            // newMarker.on('click', () => {
-            //     document.getElementsByClassName('aside')[0].innerHTML = marker.popupText;
-            // });
+            newMarker.on('click', (event) => {
+                this.clickMarker(newMarker, marker);
+            });
             newMarker.bindPopup(marker.popupText);
+            this.markersArr.push(newMarker);
 
-        })
+        });
+    }
+
+    clickMarker(markerObj, markerData) {
+        this.markersArr.forEach(marker => marker.setIcon(this.myIcon))
+        markerObj.setIcon(this.myIconClick);
+        document.getElementsByClassName('aside__info')[0].innerHTML =`
+                        <div>${markerData.popupText}</div>
+                        <div><img src="${markerData.img}"/></div>
+                `;
     }
 }
 
