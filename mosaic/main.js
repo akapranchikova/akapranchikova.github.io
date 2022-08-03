@@ -16,7 +16,7 @@ const mosaicMarkers = [
         popupText: 'Черепашка'
     },
     {
-        coords: [ 51.65782158862597, 39.18915701357037],
+        coords: [51.65782158862597, 39.18915701357037],
         popupText: 'Лиса'
     },
     {
@@ -52,14 +52,13 @@ const mosaicMarkers = [
         popupText: 'Яблоко'
     },
     {
-        coords: [ 51.66196694696772, 39.19144453628178],
+        coords: [51.66196694696772, 39.19144453628178],
         popupText: 'Крокодил'
     },
     {
         coords: [51.67233857452443, 39.199979780150905],
         popupText: 'Папоротник'
     },
-
 
 
     {
@@ -107,7 +106,7 @@ const mosaicMarkers = [
         popupText: 'Папоротник 3'
     },
     {
-        coords: [ 51.669227847990165,  39.195093081325474],
+        coords: [51.669227847990165, 39.195093081325474],
         popupText: 'Гусь'
     },
     {
@@ -135,15 +134,15 @@ const mosaicMarkers = [
         popupText: 'Слова'
     },
     {
-        coords: [ 51.67428666373837, 39.189204114954926],
+        coords: [51.67428666373837, 39.189204114954926],
         popupText: 'Радуга'
     },
     {
-        coords: [ 51.67223695241179, 39.19073187593313],
+        coords: [51.67223695241179, 39.19073187593313],
         popupText: 'Любовь'
     },
     {
-        coords: [ 51.67133870930307, 39.188682668245754],
+        coords: [51.67133870930307, 39.188682668245754],
         popupText: 'Кринж'
     },
     {
@@ -154,15 +153,64 @@ const mosaicMarkers = [
         coords: [51.66871755667519, 39.20455366373063],
         popupText: 'Мишка'
     },
+
+
+    // Коломна
+    {
+        coords: [55.10200303227641, 38.767566788010306],
+        popupText: 'Камера'
+    },
+    {
+        coords: [55.10026040631906, 38.762172336491865],
+        popupText: 'Волк'
+    },
+    {
+        coords: [55.10028572729061, 38.762121374520575],
+        popupText: 'Динозавр'
+    },
+    {
+        coords: [ 55.10032792887418, 38.762020791682524],
+        popupText: 'Корова'
+    },
+    {
+        coords: [55.101370707411704, 38.75937046295804],
+        popupText: 'Земля'
+    },
+    {
+        coords: [55.10144292201307, 38.759492364479236],
+        popupText: 'Красная собака'
+    },
+    {
+        coords: [55.10152271902324, 38.75963854487055],
+        popupText: 'Жираф'
+    },
+    {
+        coords: [55.10067423648999, 38.75815230558146],
+        popupText: 'Маленький человек на столбе'
+    },
+    {
+        coords: [55.7556526798057, 37.64268911077125],
+        popupText: 'Зебра'
+    },
 ];
 
-
+const VORONEZH_CENTER = [51.6683, 39.1919];
+const COLOMNA_CENTER = [55.10204293024229, 38.76281261444092];
+const MOSCOW_CENTER = [55.7556526798057, 37.64268911077125];
+let mapObj;
 class Map {
 
     map;
+    markersArr = [];
+    myIcon = L.divIcon({className: 'my-div-icon'});
+    myIconClick = L.divIcon({className: 'my-div-icon-click'});
+
 
     constructor() {
         this.createMap();
+        navigator.geolocation.getCurrentPosition((llocation) => {
+            console.log(llocation.coords)
+        });
     }
 
     createMap() {
@@ -181,18 +229,35 @@ class Map {
     drawMarkers() {
         mosaicMarkers.forEach(marker => {
             const newMarker = L.marker(marker.coords).addTo(this.map);
-            // newMarker.on('click', () => {
-            //     document.getElementsByClassName('aside')[0].innerHTML = marker.popupText;
-            // });
+            newMarker.on('click', (event) => {
+                this.clickMarker(newMarker, marker);
+            });
             newMarker.bindPopup(marker.popupText);
+            this.markersArr.push(newMarker);
 
-        })
+        });
+    }
+
+    clickMarker(markerObj, markerData) {
+        // this.markersArr.forEach(marker => marker.setIcon(this.myIcon))
+        // markerObj.setIcon(this.myIconClick);
+        // document.getElementsByClassName('aside__info')[0].innerHTML =`
+        //                 <div>${markerData.popupText}</div>
+        //                 <div><img src="${markerData.img}"/></div>
+        //         `;
+    }
+
+    setCenter(coords) {
+        this.map.setView(coords, 14);
     }
 }
 
 
 function init() {
-    const map = new Map();
-    map.drawMarkers();
+    mapObj = new Map();
+    mapObj.drawMarkers();
+}
 
+function clickCenter(coords) {
+    mapObj.setCenter(coords)
 }
