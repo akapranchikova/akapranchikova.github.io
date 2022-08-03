@@ -208,9 +208,9 @@ class Map {
 
     constructor() {
         this.createMap();
-        navigator.geolocation.getCurrentPosition((llocation) => {
-            console.log(llocation.coords)
-        });
+        // navigator.geolocation.getCurrentPosition((llocation) => {
+        //     console.log(llocation.coords)
+        // });
     }
 
     createMap() {
