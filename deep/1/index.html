@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Deep Fractal Zoom</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+    <canvas id="c"></canvas>
+</div>
+
+<div class="choices">
+    <button data-url="https://s3misc20190920.s3.amazonaws.com/3434441128_1430362800_o.png">1</button>
+    <button data-url="https://s3misc20190920.s3.amazonaws.com/3433634531_c14662a9f2_o.png">2</button>
+    <button data-url="https://s3misc20190920.s3.amazonaws.com/3433654007_d0ed0585db_o.png">3</button>
+</div>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec2 a_coords;
+varying vec2 v_c;
+
+void main() {
+  gl_Position = vec4(a_coords * vec2(1, -1), 0, 1);
+  v_c = a_coords;
+}
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#ifdef GL_ES
+precision highp float;
+#endif
+
+uniform sampler2D u_image;
+uniform float u_scale;
+uniform float u_zoom;
+varying vec2 v_c;
+
+void main() {
+
+  gl_FragColor = texture2D(u_image, vec2(
+    (0.5 + atan(v_c.y, v_c.x) / 6.2831853), -u_scale * log2(length(v_c) * u_zoom)
+  ));
+
+}
+
+</script>
+<!-- partial -->
+<script  src="./main.js"></script>
+
+</body>
+</html>
