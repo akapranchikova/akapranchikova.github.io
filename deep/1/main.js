@@ -18,7 +18,7 @@ var image,
 window.onload = start;
 window.onresize = resize;
 
-window.addEventListener('mousemove', mouse);
+// window.addEventListener('mousemove', mouse);
 window.addEventListener('touchmove', mouse);
 
 function resize() {
@@ -54,16 +54,18 @@ function start() {
     ctx = tex.getContext('2d');
 
     var buttons = document.getElementsByTagName('button');
-    for (let i = 0; i < buttons.length; i++) {
-        let url = buttons[i].getAttribute('data-url');
-        buttons[i].addEventListener('click', function() {
-            image.src = url;
-            m[0] = 0;
-            touched = false;
-            clearTimeout(timeout);
-            demo();
-        });
-    }
+    demo();
+    //
+    // for (let i = 0; i < buttons.length; i++) {
+    //     let url = buttons[i].getAttribute('data-url');
+    //     buttons[i].addEventListener('click', function() {
+    //         image.src = url;
+    //         m[0] = 0;
+    //         touched = false;
+    //         clearTimeout(timeout);
+    //         demo();
+    //     });
+    // }
 
     image.onload = function() {
         resize();
@@ -119,7 +121,7 @@ function main() {
     ]), gl.STATIC_DRAW);
 
     if (init) {
-        init = false;
+        // init = false;
         loop();
     }
 
@@ -140,7 +142,7 @@ function load_shader(el, type) {
 }
 
 function loop() {
-    slowX *= 0.95;
+    slowX *= 0.55;
     slowX += 0.05 * m[0] / iW;
 
     zoom = Math.pow(10, -36 * Math.max(0.003, Math.min(1, slowX)));
