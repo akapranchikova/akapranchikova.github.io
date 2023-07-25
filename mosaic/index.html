@@ -4,64 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Мозаики</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
     <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
     <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-    <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css"/>
     <style type="text/css">
-        html, body {
-            margin: 0;
-            padding: 0;
-            font-family: Inter, sans-serif;
-        }
-        #mapid {
-            height: 100vh;
-            width: 100%;
-        }
-        .main {
-            display: flex;
-        }
-        .aside {
-            width: 30%;
-            padding: 20px;
-            box-sizing: border-box;
 
-            height: 100vh;
-        }
-        .aside__toggle {
-
-        }
-        .my-div-icon {
-            border-radius: 50%;
-            background: aqua;
-        }
-        .my-div-icon-click {
-            border-radius: 50%;
-            background: yellow;
-        }
-
-        .select-city {
-            display: flex;
-            position: absolute;
-            top: 24px;
-            left: 56px;
-            z-index: 1000;
-            grid-column-gap: 24px;
-        }
-        .select-city__item {
-            border-radius: 8px;
-            height: 32px;
-            display: flex;
-            cursor: pointer;
-            align-items: center;
-            padding: 0px 12px;
-            border: none;
-            font-size: 16px;
-            background: white;
-        }
     </style>
-
 </head>
 <body onload="init()">
 <div class="main">
@@ -70,15 +21,6 @@
         <button class="select-city__item" onclick="clickCenter(COLOMNA_CENTER)">Коломна</button>
         <button class="select-city__item" onclick="clickCenter(MOSCOW_CENTER)">Москва</button>
     </div>
-<!--    <div class="aside">-->
-<!--        Карта мозаики, выберите маркер-->
-<!--        <div class="aside__toggle">-->
-<!--            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(-90deg);"><path d="M15.793 9.4l1.414 1.414L12 16.024l-5.207-5.21L8.207 9.4 12 13.195z"></path></svg>-->
-<!--        </div>-->
-<!--        <div class="aside__info">-->
-
-<!--        </div>-->
-<!--    </div>-->
     <div id="mapid"></div>
 </div>
 
