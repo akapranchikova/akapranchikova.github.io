@@ -1,0 +1,99 @@
+html {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+}
+body {
+    padding: 2rem 4rem;
+}
+.title {
+    font-family: "Inter", sans-serif;
+    font-size: 10rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.title-info {
+    margin-top: 3rem;
+    font-family: "Inter", sans-serif;
+
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.contacts {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+hr {
+    width: 100%;
+    margin-top: 40px;
+}
+.project img {
+    max-width: 90%;
+}
+.project {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.project__name {
+    font-family: "Inter", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: left;
+    white-space: pre;
+    margin-bottom: 1rem;
+}
+
+.project__link {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: 2px solid white;
+    padding: 0.125rem 0.5rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.project__link:hover {
+    text-decoration: underline;
+}
+#posters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 2rem;
+    grid-column-gap: 3rem;
+    overflow: hidden;
+    max-width: 100%;
+}
+.poster_name {
+    margin-top: 1rem;
+}
+
+.poster {
+    width: 100%;
+}
+.poster picture {
+    width: 100%;
+    overflow: hidden;
+}
+.poster img {
+    width: inherit;
+}
+
+ .test {
+    width: 100px;
+    height: 100px;
+    background: #000;
+}
