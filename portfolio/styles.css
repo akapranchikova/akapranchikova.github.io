@@ -60,14 +60,14 @@ hr {
     text-decoration: none;
     border-radius: 0.5rem;
     border: 2px solid white;
-    padding: 0.125rem 0.5rem;
+    padding: 0.225rem 1rem;
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
 }
 
 .project__link:hover {
-    text-decoration: underline;
+    background: rgba(0, 0, 0, 0.37);;
 }
 #posters {
     display: grid;
