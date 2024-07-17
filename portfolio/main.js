@@ -122,12 +122,11 @@ function addPosters() {
 function init() {
     addProjects();
     addPosters();
-    setTimeout(() => {
-        const images = document.getElementsByTagName("img");
-        console.log(images)
-        Array.from(images).forEach(image => {
-            image.addEventListener('click', clickOnImages);
-        })
-    });
-
+    // setTimeout(() => {
+    //     const images = document.getElementsByTagName("img");
+    //     console.log(images)
+    //     Array.from(images).forEach(image => {
+    //         image.addEventListener('click', clickOnImages);
+    //     })
+    // });
 }
