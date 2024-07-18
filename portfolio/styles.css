@@ -2,7 +2,7 @@ html {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-size: 16px;
-    width: 100%;
+    width: 100vw;
 }
 
 body {
@@ -79,11 +79,11 @@ hr {
 
 .project__name {
     font-family: "Inter", sans-serif;
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 700;
     text-align: left;
     white-space: pre;
-    margin-left: -4px;
+    margin-left: 0px;
     margin-bottom: 2rem;
 }
 
@@ -160,5 +160,8 @@ hr {
         align-items: center;
         margin-top: 4rem;
 
+    }
+    .project__name {
+        font-size: 4rem;
     }
 }
