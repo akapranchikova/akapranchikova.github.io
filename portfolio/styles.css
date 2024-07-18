@@ -59,11 +59,13 @@ hr {
 
 .project img {
     max-width: 1200px;
+    width: 100%;
 }
 
 .project {
     position: relative;
     margin-top: 4rem;
+    overflow: hidden;
 }
 
 .project__name {
