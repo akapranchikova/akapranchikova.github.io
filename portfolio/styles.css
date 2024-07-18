@@ -6,12 +6,12 @@ html {
 
 body {
     margin: 0 auto;
-    padding: 0 6rem;
+    padding: 2rem 6rem;
 }
 
 .block {
     margin: 0 auto;
-    padding: 2rem 4rem;
+    padding:0 4rem;
 
     /*max-width: 1200px;*/
 }
