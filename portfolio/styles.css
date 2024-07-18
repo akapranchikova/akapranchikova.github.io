@@ -6,7 +6,7 @@ html {
 
 body {
     margin: 0 auto;
-    padding: 2rem 6rem;
+    padding: 3rem 6rem;
 }
 
 .block {
@@ -57,7 +57,7 @@ body {
 
 hr {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 4.3rem;
 }
 
 .project img {
@@ -85,7 +85,7 @@ hr {
     font-size: 2rem;
     text-decoration: none;
     border-radius: 2rem;
-    border: 2px solid white;
+    border: 3px solid white;
     padding: 1rem 3rem;
     position: absolute;
     bottom: 3rem;
