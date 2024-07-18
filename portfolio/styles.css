@@ -128,7 +128,7 @@ hr {
     background: #000;
 }
 
-@media (min-width:480px) {
+@media (max-width:840px) {
     body {
         margin: 0 auto;
         padding: 4rem 2rem;
