@@ -79,6 +79,7 @@ hr {
     font-weight: 700;
     text-align: left;
     white-space: pre;
+    margin-left: -4px;
     margin-bottom: 2rem;
 }
 
