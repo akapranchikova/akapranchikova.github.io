@@ -21,8 +21,10 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 10rem;
     font-weight: 700;
+    margin-left: -8px;
     letter-spacing: -1px;
     text-align: left;
+    text-transform: uppercase;
 }
 
 .link {
