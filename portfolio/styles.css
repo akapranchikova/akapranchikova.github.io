@@ -3,18 +3,37 @@ html {
     font-optical-sizing: auto;
     font-size: 16px;
 }
+
 body {
-    padding: 2rem 4rem;
+    margin: 0 auto;
+    padding: 2rem 10rem;
 }
+
+.block {
+    margin: 0 auto;
+    /*max-width: 1200px;*/
+}
+
 .title {
     font-family: "Inter", sans-serif;
-    font-size: 10rem;
+    font-size: 14rem;
     font-weight: 700;
+    text-transform: uppercase;
     text-align: left;
 }
 
+.link {
+    cursor: pointer;
+
+}
+.link a{
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
 .title-info {
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-family: "Inter", sans-serif;
 
     font-size: 2rem;
@@ -24,7 +43,7 @@ body {
 
 .contacts {
     font-size: 1.5rem;
-    margin-top: 40px;
+    margin-top: 4rem;
     font-weight: 400;
     font-family: "Inter", sans-serif;
     text-align: left;
@@ -35,14 +54,16 @@ body {
 
 hr {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 4rem;
 }
+
 .project img {
-    max-width: 90%;
+    max-width: 1200px;
 }
+
 .project {
     position: relative;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .project__name {
@@ -51,16 +72,16 @@ hr {
     font-weight: 700;
     text-align: left;
     white-space: pre;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .project__link {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     border-radius: 0.5rem;
     border: 2px solid white;
-    padding: 0.225rem 1rem;
+    padding: 0.5rem 2rem;
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
@@ -69,6 +90,7 @@ hr {
 .project__link:hover {
     background: rgba(0, 0, 0, 0.37);;
 }
+
 #posters {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -77,6 +99,7 @@ hr {
     overflow: hidden;
     max-width: 100%;
 }
+
 .poster_name {
     margin-top: 1rem;
 }
@@ -84,15 +107,17 @@ hr {
 .poster {
     width: 100%;
 }
+
 .poster picture {
     width: 100%;
     overflow: hidden;
 }
+
 .poster img {
     width: inherit;
 }
 
- .test {
+.test {
     width: 100px;
     height: 100px;
     background: #000;
