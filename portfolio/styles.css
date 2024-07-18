@@ -6,11 +6,13 @@ html {
 
 body {
     margin: 0 auto;
-    padding: 2rem 10rem;
+    padding: 0 6rem;
 }
 
 .block {
     margin: 0 auto;
+    padding: 2rem 4rem;
+
     /*max-width: 1200px;*/
 }
 
@@ -18,6 +20,7 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 10rem;
     font-weight: 700;
+    letter-spacing: -1px;
     text-transform: uppercase;
     text-align: left;
 }
@@ -81,11 +84,11 @@ hr {
     color: white;
     font-size: 1.5rem;
     text-decoration: none;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     border: 2px solid white;
     padding: 0.5rem 2rem;
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 3rem;
     left: 1.5rem;
 }
 
@@ -103,7 +106,7 @@ hr {
 }
 
 .poster_name {
-    margin-top: 1rem;
+    margin-top: 4rem;
 }
 
 .poster {
