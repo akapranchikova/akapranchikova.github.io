@@ -10,6 +10,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     padding: 4rem 2rem;
+    overflow-x: hidden;
 }
 
 .block {
@@ -66,10 +67,26 @@ hr {
     margin-top: 4.3rem;
 }
 
-.project img {
+.project img, .image {
     max-width: 1200px;
     width: 100%;
 }
+.images {
+    display: flex;
+    flex-direction: column;
+}
+.image{
+    margin-bottom: 2rem;
+}
+.right {
+    align-self: flex-end;
+}
+.text {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+}
+p {
+    margin-bottom: 1rem;}
 
 .project {
     position: relative;
@@ -138,7 +155,6 @@ hr {
 .modern img{
     width: 100%;
 }
-
 @media (min-width:880px) {
     body {
         margin: 0 auto;
@@ -150,7 +166,7 @@ hr {
         padding:0 4rem;
     }
     .title {
-        font-size: 10rem;
+        font-size: 8rem;
         margin-left: -8px;
     }
 
@@ -163,5 +179,11 @@ hr {
     }
     .project__name {
         font-size: 4rem;
+    }
+}
+@media (min-width:1080px) {
+    .title {
+        font-size: 10rem;
+        margin-left: -8px;
     }
 }

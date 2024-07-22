@@ -9,7 +9,7 @@ const projects = [
         name: 'heddernheim\n' +
             'apparel',
         src: 'images/projects/hoodie_cons2 (1).png',
-        path: '',
+        path: 'heddernheim/index.html',
     },
     {
         name: 'novelfan \n' +
