@@ -16,6 +16,7 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 215px;
+    margin-left: -12px;
 }
 
 .justify-between {
@@ -26,6 +27,7 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 128px;
+    margin-left: -8px;
 }
 
 .number {
@@ -75,7 +77,7 @@ body {
 
 .title-info {
     display: flex;
-    grid-gap: 140px;
+    grid-gap: 136px;
     margin-top: -24px;
     margin-left: 118px;
 }
