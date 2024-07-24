@@ -18,6 +18,57 @@ body {
     font-size: 215px;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
+.title-page {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 128px;
+}
+
+.number {
+    font-size: 50px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.number.top {
+    margin-top: 15px;
+}
+
+.number.left {
+    margin-left: 15px;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-in-col {
+    align-self: flex-end;
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.mt-40 {
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+}
+
 .project {
     margin-top: 108px;
 }
@@ -32,11 +83,13 @@ body {
 .header {
     margin-bottom: 75px;
 }
+
 .small-link {
     text-decoration: underline;
     font-size: 24px;
     color: black;
     cursor: pointer;
+
 }
 
 .link {
@@ -44,7 +97,13 @@ body {
     font-weight: 700;
     font-size: 50px;
     color: black;
+    line-height: 51px;
     cursor: pointer;
+}
+
+.link:hover,
+.small-link:hover {
+    text-decoration: none;
 }
 
 .title-project {
@@ -143,7 +202,7 @@ body {
     grid-template-columns: 1fr auto;
 }
 
-.app .link {
+.app .down {
     flex: 1;
     align-content: flex-end;
 }
@@ -170,7 +229,8 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.comic-line-1 .com{
+
+.comic-line-1 .com {
     margin-left: -80px;
 }
 
@@ -183,7 +243,8 @@ body {
     display: flex;
     justify-content: center;
 }
-.link-wrap .link{
+
+.link-wrap .link {
     margin-left: -20%;
 }
 
@@ -197,19 +258,22 @@ body {
     margin-top: 25px;
     margin-bottom: 30px;
 }
+
 .posters .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 .posters .right {
     justify-self: flex-end;
 }
-.posters .right.image {
-    margin-right: 100px;}
 
-.mt-40 {
-    margin-top: 40px !important;
-    margin-bottom: 0 !important;
+.posters .right.image {
+    margin-right: 100px;
+}
+
+.more-posters .title-project {
+    margin-bottom: 35px;
 }
 
 .more-posters .row-3 {
@@ -217,6 +281,7 @@ body {
     grid-column-gap: 80px;
     margin-bottom: 70px;
 }
+
 .more-posters .row-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -231,7 +296,7 @@ body {
 
 .chat {
     font-size: 128px;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .contacts {
@@ -245,11 +310,15 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 .footer .col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .footer .link {
     align-self: flex-end;
 }
+
+
