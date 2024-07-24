@@ -1,189 +1,255 @@
 html {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-size: 16px;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0 auto;
-    width: 100%;
+    width: 1280px;
     box-sizing: border-box;
-    padding: 4rem 2rem;
-    overflow-x: hidden;
-}
-
-.block {
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding:0 0;
+    padding: 50px 100px;
 }
 
 .title {
     font-family: "Inter", sans-serif;
-
     font-weight: 700;
-    margin-left: -6px;
-    letter-spacing: -1px;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: 3.5rem;
+    font-size: 215px;
 }
 
-.link {
-    cursor: pointer;
-
-}
-.link a{
-    cursor: pointer;
-    color: black;
-    text-decoration: none;
+.project {
+    margin-top: 108px;
 }
 
 .title-info {
-    margin-top: 1rem;
-    font-family: "Inter", sans-serif;
-
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: left;
+    display: flex;
+    grid-gap: 140px;
+    margin-top: -24px;
+    margin-left: 118px;
 }
 
-.contacts {
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    font-weight: 400;
-    font-family: "Inter", sans-serif;
-    text-align: left;
+.header {
+    margin-bottom: 75px;
+}
+.small-link {
+    text-decoration: underline;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 50px;
+    color: black;
+    cursor: pointer;
+}
+
+.title-project {
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.hedernheim {
     display: flex;
-    align-items: start;
-    grid-gap: 1rem;
+    grid-column-gap: 20px;
+    height: 537px;
+    overflow: hidden;
+    position: relative;
+}
+
+.right-block {
+    height: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-hr {
-    width: 100%;
-    margin-top: 4.3rem;
+.case {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
-.project img, .image {
-    max-width: 1200px;
+
+.kombucha {
+    position: relative;
+}
+
+.kombucha .title-project,
+.kombucha .link {
+    position: absolute;
+    color: white;
+}
+
+.kombucha .title-project {
+    top: 20px;
+    left: 20px
+}
+
+.kombucha .link {
+    left: 20px;
+    bottom: 20px;
+}
+
+.green {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
 }
-.images {
+
+.green .title-project {
+    margin-top: 25px;
+}
+
+.green .link {
+    margin-top: 48px;
+    margin-bottom: 30px;
+}
+
+.green .right {
     display: flex;
     flex-direction: column;
 }
-.image{
-    margin-bottom: 2rem;
-}
-.right {
+
+.right-flex {
     align-self: flex-end;
 }
-.text {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
-}
-p {
-    margin-bottom: 1rem;}
 
-.project {
-    position: relative;
-    margin-top: 4rem;
-    overflow: hidden;
+.books {
+    display: flex;
+    height: 578px;
 }
 
-.project__name {
-    font-family: "Inter", sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: left;
-    white-space: pre;
-    margin-left: 0px;
-    margin-bottom: 2rem;
+.books .title-project {
+    margin-top: 25px;
 }
 
-.project__link {
-    color: white;
-    font-size: 2rem;
-    text-decoration: none;
-    border-radius: 2rem;
-    border: 3px solid white;
-    padding: 1rem 3rem;
-    position: absolute;
-    bottom: 3rem;
-    left: 3rem;
-}
-
-.project__link:hover {
-    background: rgba(0, 0, 0, 0.37);;
-}
-
-#posters {
+.books .left {
+    grid-template-rows: auto auto 1fr;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 2rem;
-    grid-column-gap: 3rem;
-    overflow: hidden;
-    max-width: 100%;
+    height: 100%;
+    flex: 1;
 }
 
-.poster_name {
-    margin-top: 4rem;
+.books .left .link {
+    align-self: flex-end;
 }
 
-.poster {
-    width: 100%;
+.app {
+    display: grid;
+    grid-template-columns: 1fr auto;
 }
 
-.poster picture {
-    width: 100%;
-    overflow: hidden;
+.app .link {
+    flex: 1;
+    align-content: flex-end;
 }
 
-.poster img {
-    width: inherit;
+.app .right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.test {
-    width: 100px;
-    height: 100px;
-    background: #000;
+.app .title-project {
+    margin-top: 25px;
 }
 
-.modern img{
-    width: 100%;
+.comics .title-project {
+    margin-top: 25px;
 }
-@media (min-width:880px) {
-    body {
-        margin: 0 auto;
-        padding: 3rem 6rem;
-    }
 
-    .block {
-        margin: 0 auto;
-        padding:0 4rem;
-    }
-    .title {
-        font-size: 8rem;
-        margin-left: -8px;
-    }
-
-    .contacts {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 4rem;
-
-    }
-    .project__name {
-        font-size: 4rem;
-    }
+.comics .link {
+    margin-top: 20px;
 }
-@media (min-width:1080px) {
-    .title {
-        font-size: 10rem;
-        margin-left: -8px;
-    }
+
+.comic-line-1 {
+    display: flex;
+    justify-content: space-between;
+}
+.comic-line-1 .com{
+    margin-left: -80px;
+}
+
+.comic-line-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-wrap {
+    display: flex;
+    justify-content: center;
+}
+.link-wrap .link{
+    margin-left: -20%;
+}
+
+.posters {
+    border-top: 3px solid black;
+    padding-top: 95px;
+    margin-top: 170px;
+}
+
+.posters .title-project {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+.posters .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.posters .right {
+    justify-self: flex-end;
+}
+.posters .right.image {
+    margin-right: 100px;}
+
+.mt-40 {
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+}
+
+.more-posters .row-3 {
+    display: flex;
+    grid-column-gap: 80px;
+    margin-bottom: 70px;
+}
+.more-posters .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.more-posters .col {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat {
+    font-size: 128px;
+    font-weight: 900;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 25px;
+}
+
+.footer {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.footer .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer .link {
+    align-self: flex-end;
 }

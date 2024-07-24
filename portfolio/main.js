@@ -15,24 +15,24 @@ const projects = [
         name: 'novelfan \n' +
             'book fair',
         src: 'images/projects/tickets_mockup.jpg',
-        path: '',
+        path: 'novelfan/index.html',
     },
     {
         name: 'profinder app logo',
         src: 'images/projects/1_ios (1).jpg',
-        path: '',
+        path: 'profinder/index.html',
     },
     {
         name: 'comic book\n' +
             'design',
         src: 'images/projects/FINAL_1.jpg',
-        path: '',
+        path: 'comic/index.html',
     },
     {
         name: '[gri:n] \n' +
             'brand design',
         src: 'images/projects/green_hose.jpg',
-        path: '',
+        path: 'green/index.html',
     },
 ];
 
@@ -57,7 +57,6 @@ const posters = [{
 
 function clickOnImages(event) {
     const div = document.createElement('div');
-    console.log(event);
     const src = 'images/projects/cun_f_f.jpg'
     div.style.background = 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center';
 
@@ -120,11 +119,10 @@ function addPosters() {
 }
 
 function init() {
-    addProjects();
-    addPosters();
+    // addProjects();
+    // addPosters();
     // setTimeout(() => {
-    //     const images = document.getElementsByTagName("img");
-    //     console.log(images)
+    //     const images = document.getElementsByClassName("poster");
     //     Array.from(images).forEach(image => {
     //         image.addEventListener('click', clickOnImages);
     //     })
