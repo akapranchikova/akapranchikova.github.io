@@ -19,15 +19,22 @@ body {
     margin-left: -12px;
 }
 
-.justify-between {
-    justify-content: space-between;
-}
-
 .title-page {
+    margin-top: 0;
+    margin-bottom: 70px;
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 128px;
     margin-left: -8px;
+}
+.text {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+    font-family: "Inter", sans-serif;
+    width: 50%;
+    font-weight: 300;
 }
 
 .number {
@@ -40,12 +47,21 @@ body {
     margin-top: 15px;
 }
 
-.number.left {
+.number.left, .left-number-col {
     margin-left: 15px;
+}
+.number.bottom {
+    margin-bottom: 15px;
 }
 
 .flex {
     display: flex;
+}
+.flex-1 {
+    flex: 1;
+}
+.justify-between {
+    justify-content: space-between;
 }
 
 .grid-2 {
@@ -64,6 +80,9 @@ body {
 
 .mt-70 {
     margin-top: 70px;
+}
+.ml-70 {
+    margin-left: 70px;
 }
 
 .mt-40 {
