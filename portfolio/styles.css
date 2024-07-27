@@ -350,6 +350,7 @@ body {
 
 .chat {
     font-size: 128px;
+    margin-top: -25px;
     font-weight: 600;
 }
 
@@ -372,6 +373,7 @@ body {
 }
 
 .footer .link {
+    margin-bottom: 30px;
     align-self: flex-end;
 }
 

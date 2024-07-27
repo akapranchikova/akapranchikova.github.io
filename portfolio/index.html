@@ -25,7 +25,7 @@
 
 <main>
     <div class="hedernheim">
-        <img src="images/main/img.png" height="537" width="523"/>
+        <img src="images/main/img_14.png" height="548" width="523"/>
         <div class="right-block">
             <div class="title-project">
                 HEDDERNHEIM APPAREL <br>
@@ -182,7 +182,7 @@
                 <a class="small-link" href="">TEL: +491604672921</a>
             </div>
 
-            <a class="link ">GO UP</a>
+            <a class="link " onclick="goUp()">GO UP</a>
 
         </div>
     </div>
@@ -191,5 +191,10 @@
 <div id="fullscreen"></div>
 
 <script src="main.js"></script>
+<script>
+    function goUp() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
 </body>
 </html>
