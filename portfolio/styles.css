@@ -18,6 +18,12 @@ body {
     font-size: 215px;
     margin-left: -12px;
 }
+.gap-100 {
+    grid-gap: 100px;
+}
+.gap-15 {
+    grid-gap: 15px;
+}
 
 .title-page {
     margin-top: 0;
@@ -39,6 +45,7 @@ body {
 
 .number {
     font-size: 50px;
+    line-height: 51px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
@@ -55,6 +62,13 @@ body {
 }
 .number.right {
     margin-right: 15px;
+}
+
+.w-full {
+    width: 100%;
+}
+.w-fit {
+    width: fit-content;
 }
 
 .flex {
@@ -83,6 +97,12 @@ body {
 
 .mt-70 {
     margin-top: 70px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.mr-100 {
+    margin-right: 100px;
 }
 .ml-70 {
     margin-left: 70px;
@@ -357,3 +377,12 @@ body {
     right: 15px;
 }
 
+.poor-things {
+    position: relative;
+}
+
+.poor-things .number{
+    position: absolute;
+    left: -120px;
+    bottom: 0;
+}
