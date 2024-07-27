@@ -53,6 +53,9 @@ body {
 .number.bottom {
     margin-bottom: 15px;
 }
+.number.right {
+    margin-right: 15px;
+}
 
 .flex {
     display: flex;
@@ -83,6 +86,9 @@ body {
 }
 .ml-70 {
     margin-left: 70px;
+}
+.ml-20 {
+    margin-left: 20px;
 }
 
 .mt-40 {
@@ -342,4 +348,12 @@ body {
     align-self: flex-end;
 }
 
+.photo-green {
+    position: relative;
+}
+.photo-green .number {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
 
