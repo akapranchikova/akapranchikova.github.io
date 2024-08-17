@@ -81,6 +81,23 @@ body {
     justify-content: space-between;
 }
 
+.justify-center {
+    justify-content: center;
+}
+.absolute {
+    position: absolute;
+}
+.ab-bottom {
+    bottom: -66px;
+}
+.absolute.right {
+    right: 0;
+    margin-right: 0;
+}
+.relative {
+    position: relative;
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -103,6 +120,9 @@ body {
 }
 .mr-100 {
     margin-right: 100px;
+}
+.mr-80 {
+    margin-right: 80px;
 }
 .mt-100 {
     margin-top: 100px;
@@ -320,19 +340,6 @@ body {
 .posters .title-project {
     margin-top: 25px;
     margin-bottom: 30px;
-}
-
-.posters .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.posters .right {
-    justify-self: flex-end;
-}
-
-.posters .right.image {
-    margin-right: 100px;
 }
 
 .more-posters .title-project {
