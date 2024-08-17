@@ -1,6 +1,9 @@
 function clickOnImages(event) {
     const div = document.createElement('div');
-    const src = location.origin + '/portfolio/'+ event.target.getAttribute('srcfull') || event.target.src;
+    const srcFull = event.target.getAttribute('srcfull');
+    const src =srcFull ? ( location.origin + '/portfolio/' + srcFull) : event.target.src;
+    console.log(event)
+    // const src = event.target.src;
     console.log(src, event.target.src)
     div.style.background = 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center';
 
