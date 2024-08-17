@@ -104,6 +104,9 @@ body {
 .mr-100 {
     margin-right: 100px;
 }
+.mt-100 {
+    margin-top: 100px;
+}
 .ml-70 {
     margin-left: 70px;
 }
@@ -112,6 +115,12 @@ body {
 }
 .ml-20 {
     margin-left: 20px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-35 {
+    margin-top: 35px;
 }
 
 .w-500 {
