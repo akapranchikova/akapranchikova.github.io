@@ -36,16 +36,21 @@ body {
 .text {
     font-size: 24px;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
-    grid-gap: 24px;
+    grid-gap: 32px;
     font-family: "Inter", sans-serif;
     width: 50%;
     font-weight: 300;
+    box-sizing: border-box;
+}
+.text div {
+    white-space: normal;
 }
 
 .number {
     font-size: 50px;
-    line-height: 51px;
+    /*line-height: 51px;*/
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
