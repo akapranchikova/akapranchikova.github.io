@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Broken Heads Quiz</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background-color: #151515;
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: none;
+        }
+
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .answers button {
+            background-color: #222;
+            color: #f5f5f5;
+            border: 1px solid #666;
+            border-radius: 6px;
+            padding: 12px 20px;
+            margin: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .answers button:hover {
+            background-color: #333;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .timer {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #ff5555;
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="timer" id="timer">Время: 15</div>
+    <div class="question" id="question">Loading...</div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback"></div>
+</div>
+
+<script>
+
+    const allQuestions = [
+        {
+            question: "Почему Харви и Алекс перестали общаться после гонки?",
+            correct: "Харви предала Алекс, выбросив её с трассы.",
+            options: [
+                "Алекс предала Харви, выбросив её с трассы.",
+                "Харви предала Алекс, выбросив её с трассы.",
+                "Алекс уехала в другой город.",
+                "Они поссорились из-за Майкла."
+            ]
+        },
+        {
+            question: "Почему Алекс вернулась в город Broken Heads после долгого отсутствия?",
+            correct: "По заданию ФБР для внедрения.",
+            options: [
+                "Чтобы отомстить Харви.",
+                "По заданию ФБР для внедрения.",
+                "Чтобы восстановить отношения с Майклом.",
+                "Чтобы заново вступить в банду."
+            ]
+        },
+        {
+            question: "Как Алекс оказалась в одном городе с Харви снова?",
+            correct: "Алекс перевели туда в рамках ФБР операции.",
+            options: [
+                "Случайно встретились.",
+                "Алекс внедрили в Broken Heads.",
+                "Алекс перевели туда в рамках ФБР операции.",
+                "Харви её позвала."
+            ]
+        },
+        {
+            question: "Что стало с младшим братом Майкла?",
+            correct: "Он погиб при перестрелке.",
+            options: [
+                "Его арестовали.",
+                "Он погиб при перестрелке.",
+                "Он сбежал.",
+                "Он был отправлен за границу."
+            ]
+        },
+        {
+            question: "Что для Харви важнее всего в её роли в Broken Heads?",
+            correct: "Контроль над ситуацией и защитой близких.",
+            options: [
+                "Контроль над ситуацией и защитой близких.",
+                "Власть любой ценой.",
+                "Деньги и статус.",
+                "Отношения с Майклом."
+            ]
+        },
+        {
+            question: "Что символизирует название \"Broken Heads\"?",
+            correct: "Разбитые судьбы и психология членов банды.",
+            options: [
+                "Разбитые судьбы и психология членов банды.",
+                "Старая легенда о жестокой банде.",
+                "Операцию ФБР.",
+                "Название района."
+            ]
+        },
+        {
+            question: "Что обычно означают шрамы у участников Broken Heads?",
+            correct: "Личная история боли и силы.",
+            options: [
+                "Метка за предательство.",
+                "Принудительное клеймо.",
+                "Личная история боли и силы.",
+                "Награда за лояльность."
+            ]
+        },
+        {
+            question: "Что было целью создания клуба \"Роялы\"?",
+            correct: "Внешняя ширма для легального бизнеса.",
+            options: [
+                "Внешняя ширма для легального бизнеса.",
+                "Тайное место для встреч с полицией.",
+                "Место для сбора информации о конкурентах.",
+                "Личный проект Харви."
+            ]
+        },
+        {
+            question: "Какое из этих событий произошло раньше остальных?",
+            correct: "Разрыв между Алекс и Харви на гонке.",
+            options: [
+                "Попытка внедрения в Роялы.",
+                "Разрыв между Алекс и Харви на гонке.",
+                "Срыв операции с ФБР.",
+                "Появление Дакоты в сюжете."
+            ]
+        },
+        {
+            question: "Как Алекс относится к идее мести в первой книге?",
+            correct: "Считает месть слабостью.",
+            options: [
+                "Видит её как основной мотив.",
+                "Считает месть слабостью.",
+                "Хочет мстить любой ценой.",
+                "Ей всё равно."
+            ]
+        },
+        {
+            question: "Кто из персонажей чаще использует сарказм в речи?",
+            correct: "Алекс.",
+            options: [
+                "Харви.",
+                "Пуля.",
+                "Алекс.",
+                "Браун."
+            ]
+        },
+        {
+            question: "Кто склонен брать ответственность за других?",
+            correct: "Алекс.",
+            options: [
+                "Алекс.",
+                "Иззи.",
+                "Браун.",
+                "Пуля."
+            ]
+        },
+        {
+            question: "После чего у Алекс начинается внутренняя трансформация?",
+            correct: "После попытки снова доверять Харви.",
+            options: [
+                "После первой встречи с Пулей.",
+                "После попытки снова доверять Харви.",
+                "После ссоры с Грегом.",
+                "После провала операции."
+            ]
+        }
+    ];
+
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    let selectedQuestions = [];
+    let currentQuestion = 0;
+    let correctAnswersCount = 0;
+    let timer;
+    let timeLeft = 15;
+
+    function startGame() {
+        shuffle(allQuestions);
+        selectedQuestions = allQuestions.slice(0, 10);
+        currentQuestion = 0;
+        correctAnswersCount = 0;
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const questionEl = document.getElementById('question');
+        const answersEl = document.getElementById('answers');
+        const feedbackEl = document.getElementById('feedback');
+        const timerEl = document.getElementById('timer');
+
+        feedbackEl.textContent = '';
+        timeLeft = 15;
+        timerEl.textContent = `Время: ${timeLeft}`;
+
+        clearInterval(timer);
+        timer = setInterval(() => {
+            timeLeft--;
+            timerEl.textContent = `Время: ${timeLeft}`;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                showFeedback(false);
+            }
+        }, 1000);
+
+        const qData = selectedQuestions[currentQuestion];
+        questionEl.textContent = qData.question;
+
+        answersEl.innerHTML = '';
+        qData.options.forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = option;
+            button.addEventListener('click', () => {
+                clearInterval(timer);
+                handleAnswer(option);
+            });
+            answersEl.appendChild(button);
+        });
+    }
+
+    function handleAnswer(selected) {
+        const qData = selectedQuestions[currentQuestion];
+        const isCorrect = selected === qData.correct;
+
+        if (isCorrect) {
+            correctAnswersCount++;
+        }
+
+        showFeedback(isCorrect);
+    }
+
+    function showFeedback(isCorrect) {
+        const feedbackEl = document.getElementById('feedback');
+        const qData = selectedQuestions[currentQuestion];
+
+        if (isCorrect) {
+            feedbackEl.textContent = 'Правильно!';
+            feedbackEl.style.color = 'lime';
+        } else {
+            feedbackEl.textContent = `Время вышло или неверно. Правильный ответ: ${qData.correct}`;
+            feedbackEl.style.color = 'red';
+        }
+
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < selectedQuestions.length) {
+                loadQuestion();
+            } else {
+                showEndScreen();
+            }
+        }, 2000);
+    }
+
+    function showEndScreen() {
+        const questionEl = document.getElementById('question');
+        const answersEl = document.getElementById('answers');
+        const feedbackEl = document.getElementById('feedback');
+        const timerEl = document.getElementById('timer');
+
+        clearInterval(timer);
+        timerEl.textContent = '';
+        questionEl.textContent = 'Викторина завершена!';
+        answersEl.innerHTML = '';
+        feedbackEl.textContent = `Вы ответили правильно на ${correctAnswersCount} из ${selectedQuestions.length} вопросов.`;
+        feedbackEl.style.color = 'orange';
+    }
+
+    startGame();
+</script>
+</body>
+</html>
