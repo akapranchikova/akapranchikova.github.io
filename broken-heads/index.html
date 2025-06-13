@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Broken Heads Quiz</title>
     <style>
@@ -16,7 +16,6 @@
             height: 100vh;
             margin: 0;
         }
-
         .quiz-container {
             background-color: #151515;
             border: none;
@@ -26,12 +25,10 @@
             text-align: center;
             box-shadow: none;
         }
-
         .question {
             font-size: 1.4em;
             margin-bottom: 20px;
         }
-
         .answers button {
             background-color: #222;
             color: #f5f5f5;
@@ -43,33 +40,50 @@
             transition: background-color 0.3s;
             width: 100%;
         }
-
         .answers button:hover {
             background-color: #333;
         }
-
         .feedback {
             margin-top: 20px;
             font-weight: bold;
         }
-
         .timer {
             font-size: 1.2em;
             margin-bottom: 15px;
             color: #ff5555;
+        }
+        .counter {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #aaaaaa;
+        }
+        .next-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #222;
+            color: #f5f5f5;
+            border: 1px solid #666;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+        .next-button:hover {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
 <div class="quiz-container">
     <div class="timer" id="timer">Время: 15</div>
+    <div class="counter" id="counter">Вопрос 1 из 10</div>
     <div class="question" id="question">Loading...</div>
     <div class="answers" id="answers"></div>
     <div class="feedback" id="feedback"></div>
+    <button id="next-button" class="next-button" style="display:none;">Далее</button>
 </div>
 
 <script>
-
     const allQuestions = [
         {
             question: "Почему Харви и Алекс перестали общаться после гонки?",
@@ -203,7 +217,6 @@
         }
     ];
 
-
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -216,6 +229,7 @@
     let correctAnswersCount = 0;
     let timer;
     let timeLeft = 15;
+    let answered = false;
 
     function startGame() {
         shuffle(allQuestions);
@@ -230,16 +244,21 @@
         const answersEl = document.getElementById('answers');
         const feedbackEl = document.getElementById('feedback');
         const timerEl = document.getElementById('timer');
+        const counterEl = document.getElementById('counter');
+        const nextButton = document.getElementById('next-button');
 
         feedbackEl.textContent = '';
+        answered = false;
         timeLeft = 15;
         timerEl.textContent = `Время: ${timeLeft}`;
+        counterEl.textContent = `Вопрос ${currentQuestion + 1} из ${selectedQuestions.length}`;
+        nextButton.style.display = 'none';
 
         clearInterval(timer);
         timer = setInterval(() => {
             timeLeft--;
             timerEl.textContent = `Время: ${timeLeft}`;
-            if (timeLeft <= 0) {
+            if (timeLeft <= 0 && !answered) {
                 clearInterval(timer);
                 showFeedback(false);
             }
@@ -253,8 +272,10 @@
             const button = document.createElement('button');
             button.textContent = option;
             button.addEventListener('click', () => {
-                clearInterval(timer);
-                handleAnswer(option);
+                if (!answered) {
+                    clearInterval(timer);
+                    handleAnswer(option);
+                }
             });
             answersEl.appendChild(button);
         });
@@ -274,6 +295,7 @@
     function showFeedback(isCorrect) {
         const feedbackEl = document.getElementById('feedback');
         const qData = selectedQuestions[currentQuestion];
+        const nextButton = document.getElementById('next-button');
 
         if (isCorrect) {
             feedbackEl.textContent = 'Правильно!';
@@ -283,28 +305,35 @@
             feedbackEl.style.color = 'red';
         }
 
-        setTimeout(() => {
-            currentQuestion++;
-            if (currentQuestion < selectedQuestions.length) {
-                loadQuestion();
-            } else {
-                showEndScreen();
-            }
-        }, 2000);
+        answered = true;
+        nextButton.style.display = 'block';
     }
+
+    document.getElementById('next-button').addEventListener('click', () => {
+        currentQuestion++;
+        if (currentQuestion < selectedQuestions.length) {
+            loadQuestion();
+        } else {
+            showEndScreen();
+        }
+    });
 
     function showEndScreen() {
         const questionEl = document.getElementById('question');
         const answersEl = document.getElementById('answers');
         const feedbackEl = document.getElementById('feedback');
         const timerEl = document.getElementById('timer');
+        const counterEl = document.getElementById('counter');
+        const nextButton = document.getElementById('next-button');
 
         clearInterval(timer);
         timerEl.textContent = '';
+        counterEl.textContent = '';
         questionEl.textContent = 'Викторина завершена!';
         answersEl.innerHTML = '';
         feedbackEl.textContent = `Вы ответили правильно на ${correctAnswersCount} из ${selectedQuestions.length} вопросов.`;
         feedbackEl.style.color = 'orange';
+        nextButton.style.display = 'none';
     }
 
     startGame();
