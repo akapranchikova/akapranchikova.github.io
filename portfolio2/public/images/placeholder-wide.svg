@@ -1,0 +1,7 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="640" fill="#EDEDED"/>
+  <rect x="34" y="34" width="892" height="572" stroke="#C5C5C5" stroke-width="2"/>
+  <circle cx="180" cy="170" r="55" fill="#D2D2D2"/>
+  <path d="M0 470L220 330L410 430L650 270L960 410V640H0V470Z" fill="#D9D9D9"/>
+  <text x="480" y="338" text-anchor="middle" fill="#8A8A8A" font-family="Helvetica, Arial, sans-serif" font-size="54">Portfolio</text>
+</svg>
