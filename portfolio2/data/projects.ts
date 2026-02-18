@@ -26,12 +26,77 @@ export type Project = {
     behance?: string;
     instagram?: string;
   };
+  homeTitlePosition?: "left" | "middle" | "right";
 };
 
-const imageSet = {
-  tall: { src: "/images/placeholder-tall.svg", alt: "Project preview", width: 720, height: 1040 },
-  wide: { src: "/images/placeholder-wide.svg", alt: "Project preview", width: 960, height: 640 },
-  square: { src: "/images/placeholder-square.svg", alt: "Project preview", width: 800, height: 800 },
+const skaty1: ProjectImage = {
+  src: "/images/skaty1.jpg",
+  alt: "Skaty business card",
+  width: 4096,
+  height: 2730,
+};
+
+const skaty2: ProjectImage = {
+  src: "/images/skaty2.jpg",
+  alt: "Skaty storefront poster",
+  width: 3000,
+  height: 2000,
+};
+
+const somera1: ProjectImage = {
+  src: "/images/somera1.png",
+  alt: "Somera packaging concept",
+  width: 1080,
+  height: 1350,
+};
+
+const somera2: ProjectImage = {
+  src: "/images/somera2.png",
+  alt: "Somera identity presentation",
+  width: 1920,
+  height: 1080,
+};
+
+const profinder1: ProjectImage = {
+  src: "/images/profinder1.jpg",
+  alt: "Profinder mobile UI",
+  width: 4000,
+  height: 2668,
+};
+
+const profinder2: ProjectImage = {
+  src: "/images/profinder2.jpg",
+  alt: "Profinder outdoor communication",
+  width: 4000,
+  height: 3000,
+};
+
+const bowie1: ProjectImage = {
+  src: "/images/bowie.jpg",
+  alt: "David Bowie editorial spread",
+  width: 4096,
+  height: 2731,
+};
+
+const bowie2: ProjectImage = {
+  src: "/images/bowie2.jpg",
+  alt: "David Bowie editorial layouts",
+  width: 1725,
+  height: 1294,
+};
+
+const book1: ProjectImage = {
+  src: "/images/book1.jpg",
+  alt: "Book fair poster mockup",
+  width: 4096,
+  height: 2731,
+};
+
+const book2: ProjectImage = {
+  src: "/images/book2.jpg",
+  alt: "Book fair poster composition",
+  width: 1920,
+  height: 1440,
 };
 
 export const projects: Project[] = [
@@ -42,19 +107,20 @@ export const projects: Project[] = [
     titleFull: "Skaty. Visual Identity for a Streetwear Brand",
     category: "graphic",
     year: "2024",
-    cover: imageSet.tall,
-    thumbnails: [imageSet.tall, imageSet.wide, imageSet.square],
+    cover: skaty2,
+    thumbnails: [skaty2, skaty1],
+    homeTitlePosition: "left",
     description: "Visual identity and launch campaign for a streetwear brand.",
     sections: [
       {
         title: "Logo",
         text: "Core marks, typographic treatment and logo usage principles.",
-        images: [imageSet.wide, imageSet.square],
+        images: [skaty1, skaty2],
       },
       {
         title: "Visuals",
         text: "Packaging, urban posters and campaign mockups.",
-        images: [imageSet.tall, imageSet.wide, imageSet.square],
+        images: [skaty2, skaty1],
       },
     ],
   },
@@ -65,17 +131,18 @@ export const projects: Project[] = [
     titleFull: "Somera Botanical Beauty Brand Identity",
     category: "graphic",
     year: "2024",
-    cover: imageSet.tall,
-    thumbnails: [imageSet.square, imageSet.wide, imageSet.tall],
+    cover: somera1,
+    thumbnails: [somera1, somera2],
+    homeTitlePosition: "middle",
     description: "Identity and packaging concept for botanical cosmetics.",
     sections: [
       {
         title: "Logo",
-        images: [imageSet.wide, imageSet.square],
+        images: [somera2, somera1],
       },
       {
         title: "Visuals",
-        images: [imageSet.tall, imageSet.wide],
+        images: [somera1, somera2],
       },
     ],
   },
@@ -84,19 +151,20 @@ export const projects: Project[] = [
     index: 3,
     titleShort: "Profinder",
     titleFull: "Profinder Brand Identity Communication Design",
-    category: "uxui",
+    category: "graphic",
     year: "2023",
-    cover: imageSet.wide,
-    thumbnails: [imageSet.wide, imageSet.square, imageSet.wide],
+    cover: profinder1,
+    thumbnails: [profinder1, profinder2],
+    homeTitlePosition: "left",
     description: "Product communication visuals for a mobile-first service.",
     sections: [
       {
         title: "Logo",
-        images: [imageSet.square, imageSet.wide],
+        images: [profinder2, profinder1],
       },
       {
         title: "Visuals",
-        images: [imageSet.wide, imageSet.square, imageSet.wide],
+        images: [profinder1, profinder2],
       },
     ],
   },
@@ -107,17 +175,18 @@ export const projects: Project[] = [
     titleFull: "(NON) FICTION Visual Identity Poster Design",
     category: "graphic",
     year: "2023",
-    cover: imageSet.tall,
-    thumbnails: [imageSet.wide, imageSet.tall, imageSet.square],
+    cover: book1,
+    thumbnails: [book1, book2],
+    homeTitlePosition: "right",
     description: "Festival poster system and outdoor identity.",
     sections: [
       {
         title: "Logo",
-        images: [imageSet.wide, imageSet.square],
+        images: [book1, book2],
       },
       {
         title: "Visuals",
-        images: [imageSet.tall, imageSet.wide],
+        images: [book2, book1],
       },
     ],
   },
@@ -128,17 +197,18 @@ export const projects: Project[] = [
     titleFull: "David Bowie Editorial Zine Design",
     category: "graphic",
     year: "2022",
-    cover: imageSet.wide,
-    thumbnails: [imageSet.wide, imageSet.square, imageSet.wide],
+    cover: bowie1,
+    thumbnails: [bowie1, bowie2],
+    homeTitlePosition: "left",
     description: "Experimental editorial layout for a printed zine.",
     sections: [
       {
         title: "Logo",
-        images: [imageSet.square, imageSet.wide],
+        images: [bowie1, bowie2],
       },
       {
         title: "Visuals",
-        images: [imageSet.wide, imageSet.tall, imageSet.square],
+        images: [bowie2, bowie1],
       },
     ],
   },
@@ -156,4 +226,3 @@ export function getProjectNeighbors(slug: string) {
     next: currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null,
   };
 }
-

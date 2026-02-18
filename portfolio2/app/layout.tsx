@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PT_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ClientOnly from "@/components/ClientOnly";
 import "../styles/globals.css";
 
 const ptMono = PT_Mono({
@@ -23,11 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${ptMono.variable} antialiased`} suppressHydrationWarning>
-        <div className="site-shell">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <ClientOnly>
+          <div className="site-shell">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </ClientOnly>
       </body>
     </html>
   );
