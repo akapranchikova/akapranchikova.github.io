@@ -3,6 +3,7 @@ import { PT_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientOnly from "@/components/ClientOnly";
+import TypographyFixer from "@/components/TypographyFixer";
 import "../styles/globals.css";
 
 const ptMono = PT_Mono({
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${ptMono.variable} antialiased`} suppressHydrationWarning>
         <ClientOnly>
+          <TypographyFixer />
           <div className="site-shell">
             <Header />
             <main>{children}</main>

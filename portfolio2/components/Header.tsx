@@ -1,8 +1,14 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <h1>PORTFOLIO</h1>
+        <h1>
+          <Link href="/" aria-label="Go to home page">
+            PORTFOLIO
+          </Link>
+        </h1>
         <div className="header-meta">
           <p>Ruseva Yana</p>
           <p>Brand &amp; Visual Designer</p>
@@ -12,4 +18,3 @@ export default function Header() {
     </header>
   );
 }
-

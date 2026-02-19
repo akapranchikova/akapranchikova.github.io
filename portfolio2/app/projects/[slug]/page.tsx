@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
 import { getProjectBySlug, getProjectNeighbors, projects } from "@/data/projects";
-import type { ProjectImage } from "@/data/projects";
+import type { Project, ProjectImage } from "@/data/projects";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -10,6 +10,85 @@ type ProjectPageProps = {
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+type ArrowIconProps = {
+  direction?: "left" | "right";
+};
+
+function ArrowIcon({ direction = "right" }: ArrowIconProps) {
+  return (
+    <svg
+      width="45"
+      height="25"
+      viewBox="0 0 45 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`project-nav-icon${direction === "left" ? " is-left" : ""}`}
+      aria-hidden="true"
+    >
+      <path d="M1 12.5H43.7143" stroke="#000001" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M32.2144 24L43.7144 12.5L32.2144 1"
+        stroke="#000001"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      width="45"
+      height="45"
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="project-nav-icon"
+      aria-hidden="true"
+    >
+      <path d="M43.7143 1L1 43.7143" stroke="#000001" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M1 1L43.7143 43.7143" stroke="#000001" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+type ProjectNavProps = {
+  prev: Project | null;
+  next: Project | null;
+};
+
+function ProjectNav({ prev, next }: ProjectNavProps) {
+  return (
+    <div className="project-nav skaty-project-nav">
+      <div className="project-nav-group">
+        {prev ? (
+          <Link href={`/projects/${prev.slug}`} aria-label="Previous project" className="project-nav-link">
+            <ArrowIcon direction="left" />
+          </Link>
+        ) : (
+          <span className="project-nav-link is-disabled" aria-hidden="true">
+            <ArrowIcon direction="left" />
+          </span>
+        )}
+        {next ? (
+          <Link href={`/projects/${next.slug}`} aria-label="Next project" className="project-nav-link">
+            <ArrowIcon />
+          </Link>
+        ) : (
+          <span className="project-nav-link is-disabled" aria-hidden="true">
+            <ArrowIcon />
+          </span>
+        )}
+      </div>
+      <Link href="/" aria-label="Close project" className="project-nav-link">
+        <CloseIcon />
+      </Link>
+    </div>
+  );
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -53,15 +132,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
       <div className="container project-page skaty-page" id="project-top">
-        <div className="project-nav skaty-project-nav">
-          <div className="project-nav-group">
-            {prev ? <Link href={`/projects/${prev.slug}`}>←</Link> : <span>←</span>}
-            {next ? <Link href={`/projects/${next.slug}`}>→</Link> : <span>→</span>}
-          </div>
-          <Link href="/" aria-label="Close project">
-            ✕
-          </Link>
-        </div>
+        <ProjectNav prev={prev} next={next} />
 
         <section className="skaty-intro">
           <h2>Skaty. Visual Identity for a Streetwear Brand</h2>
@@ -216,15 +287,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
       <div className="container project-page somera-page" id="project-top">
-        <div className="project-nav skaty-project-nav">
-          <div className="project-nav-group">
-            {prev ? <Link href={`/projects/${prev.slug}`}>←</Link> : <span>←</span>}
-            {next ? <Link href={`/projects/${next.slug}`}>→</Link> : <span>→</span>}
-          </div>
-          <Link href="/" aria-label="Close project">
-            ✕
-          </Link>
-        </div>
+        <ProjectNav prev={prev} next={next} />
 
         <section className="somera-intro">
           <h2>Somera. Botanical self-care</h2>
@@ -452,15 +515,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
       <div className="container project-page profinder-page" id="project-top">
-        <div className="project-nav skaty-project-nav">
-          <div className="project-nav-group">
-            {prev ? <Link href={`/projects/${prev.slug}`}>←</Link> : <span>←</span>}
-            {next ? <Link href={`/projects/${next.slug}`}>→</Link> : <span>→</span>}
-          </div>
-          <Link href="/" aria-label="Close project">
-            ✕
-          </Link>
-        </div>
+        <ProjectNav prev={prev} next={next} />
 
         <section className="profinder-intro">
           <h2>Profinder. Service marketplace app</h2>
@@ -640,15 +695,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
       <div className="container project-page nonfiction-page" id="project-top">
-        <div className="project-nav skaty-project-nav">
-          <div className="project-nav-group">
-            {prev ? <Link href={`/projects/${prev.slug}`}>←</Link> : <span>←</span>}
-            {next ? <Link href={`/projects/${next.slug}`}>→</Link> : <span>→</span>}
-          </div>
-          <Link href="/" aria-label="Close project">
-            ✕
-          </Link>
-        </div>
+        <ProjectNav prev={prev} next={next} />
 
         <section className="nonfiction-intro">
           <h2>Frankfurt Book Fair (NON) FICTION</h2>
@@ -696,13 +743,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div className="container project-page">
-      <div className="project-nav">
-        <div className="project-nav-group">
-          {prev ? <Link href={`/projects/${prev.slug}`}>← Prev</Link> : <span>← Prev</span>}
-          {next ? <Link href={`/projects/${next.slug}`}>Next →</Link> : <span>Next →</span>}
-        </div>
-        <Link href="/">✕ Back to home</Link>
-      </div>
+      <ProjectNav prev={prev} next={next} />
 
       <section className="project-hero">
         <OptimizedImage
