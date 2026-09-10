@@ -194,6 +194,7 @@ class MosaicMap {
             preferCanvas: true,
             minZoom: 3
         }).setView(start.center, start.zoom);
+        this.map.attributionControl.setPrefix(false);
 
         L.control.zoom({ position: 'topleft' }).addTo(this.map);
 
