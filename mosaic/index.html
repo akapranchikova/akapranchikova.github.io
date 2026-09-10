@@ -1,29 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Мозаики</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f5f1e8">
+    <meta name="description" content="Карта уличных мозаик Алисы Капран в Воронеже, Коломне и Москве.">
+    <title>Мозаики Алисы Капран — карта</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-    <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
-    <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css"/>
-    <style type="text/css">
-
-    </style>
+    <script defer src="vendor/leaflet/leaflet.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="app.js"></script>
 </head>
-<body onload="init()">
-<div class="main">
-    <div class="select-city">
-        <button class="select-city__item" onclick="clickCenter(VORONEZH_CENTER)">Воронеж</button>
-        <button class="select-city__item" onclick="clickCenter(COLOMNA_CENTER)">Коломна</button>
-        <button class="select-city__item" onclick="clickCenter(MOSCOW_CENTER)">Москва</button>
-    </div>
-    <div id="mapid"></div>
-</div>
+<body>
+<main class="app">
+    <section class="map-toolbar" aria-label="Настройки карты">
+        <div class="brand-row">
+            <div>
+                <p class="eyebrow">Уличное искусство</p>
+                <h1>Мозаики на карте</h1>
+            </div>
+            <a class="instagram-link" href="https://www.instagram.com/al_kachino_art/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram al_kachino_art">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="instagram-dot"/></svg>
+                <span>@al_kachino_art</span>
+            </a>
+        </div>
 
-<script src="main.js"></script>
+        <p class="intro">Нажмите на метку, чтобы увидеть работу и найти её в городе.</p>
+
+        <div class="city-switcher" role="group" aria-label="Выбрать город">
+            <button class="city-button is-active" type="button" data-city="voronezh">Воронеж <span class="city-count"></span></button>
+            <button class="city-button" type="button" data-city="kolomna">Коломна <span class="city-count"></span></button>
+            <button class="city-button" type="button" data-city="moscow">Москва <span class="city-count"></span></button>
+        </div>
+
+        <label class="search">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+            <span class="visually-hidden">Найти мозаику</span>
+            <input id="search-input" type="search" inputmode="search" autocomplete="off" placeholder="Найти мозаику">
+        </label>
+
+        <div class="map-summary" aria-live="polite">
+            <span class="photo-key"><i aria-hidden="true"></i> с фотографией</span>
+            <span id="result-count">Загрузка точек…</span>
+        </div>
+    </section>
+
+    <div id="connection-status" class="connection-status" role="status" hidden>
+        Нет сети — показываем сохранённую карту
+    </div>
+
+    <section id="mapid" aria-label="Интерактивная карта мозаик"></section>
+
+    <aside id="details" class="details is-empty" aria-live="polite" aria-label="Информация о мозаике">
+        <div class="details__empty">
+            <span class="details__spark" aria-hidden="true">✦</span>
+            <div>
+                <p class="details__hint">Выберите точку</p>
+                <p>У отмеченных цветом меток есть фотографии.</p>
+            </div>
+        </div>
+    </aside>
+
+    <noscript>
+        <div class="no-script">Для интерактивной карты нужен JavaScript.</div>
+    </noscript>
+</main>
 </body>
 </html>
