@@ -4,163 +4,19 @@ const CITY_CONFIG = {
     moscow: { center: [55.75565, 37.64269], zoom: 14, label: 'Москве' }
 };
 
-const PHOTO_LIBRARY = {
-    'Хи-Хи2': {
-        address: 'ул. Карла Маркса, 49',
-        image: 'hihi',
-        imageSize: '23 КБ',
-        instagram: 'https://www.instagram.com/al_kachino_art/p/Dagckyminy1/'
-    },
-    'Растение в горшке': {
-        address: 'ул. Карла Маркса, 56, со стороны Есенинской аллеи',
-        image: 'plant-pot',
-        imageSize: '17 КБ',
-        instagram: 'https://www.instagram.com/al_kachino_art/p/Da3H162CjAf/'
-    }
+const STATUS_CONFIG = {
+    active: { key: 'active', label: 'Точка на карте' },
+    'painted-over': { key: 'muted', label: 'Закрашена' },
+    'partially-damaged': { key: 'muted', label: 'Частично разрушена' },
+    unconfirmed: { key: 'unconfirmed', label: 'Местонахождение требует проверки' }
 };
-
-const PHOTO_BY_COORDINATES = {
-    '51.66596,39.20141': {
-        image: 'rabbit',
-        imageSize: '7 КБ',
-        instagram: 'https://www.instagram.com/p/CQJzA_whsem/'
-    },
-    '51.70780,39.14874': {
-        image: 'bone',
-        imageSize: '5 КБ',
-        instagram: 'https://www.instagram.com/p/CR50ELHDbLh/'
-    },
-    '51.66907,39.22266': {
-        address: 'набережная Воронежского водохранилища',
-        image: 'spider-crab',
-        imageSize: '15 КБ',
-        instagram: 'https://www.instagram.com/p/CQ59ZRwjcvd/'
-    },
-    '51.67300,39.18474': {
-        image: 'words',
-        imageSize: '37 КБ',
-        instagram: 'https://www.instagram.com/p/CczhiH5IPI9/'
-    },
-    '51.66838,39.20439': {
-        address: 'ул. Фридриха Энгельса, недалеко от мозаики «Пистолет»',
-        image: 'teddy',
-        imageSize: '30 КБ',
-        instagram: 'https://www.instagram.com/p/CcmoHWNj8rV/'
-    },
-    '51.66681,39.19783': {
-        address: 'у Детской художественной школы',
-        image: 'chicks',
-        imageSize: '22 КБ',
-        instagram: 'https://www.instagram.com/p/CVa2aitonOY/'
-    },
-    '51.66668,39.20577': {
-        image: 'burger',
-        imageSize: '12 КБ',
-        instagram: 'https://www.instagram.com/p/Cu9BXIitU3N/'
-    },
-    '51.66658,39.20641': {
-        address: 'гастромаркет «Коммуна»',
-        image: 'corn',
-        imageSize: '24 КБ',
-        instagram: 'https://www.instagram.com/p/CvEPJVOoC4j/'
-    },
-    '51.66491,39.19427': {
-        image: 'house',
-        imageSize: '40 КБ',
-        instagram: 'https://www.instagram.com/p/Cjc8RA-DKgV/'
-    },
-    '51.66514,39.19483': {
-        image: 'pig',
-        imageSize: '19 КБ',
-        instagram: 'https://www.instagram.com/p/CjXVHn3Dqto/'
-    },
-    '51.67051,39.20577': {
-        image: 'sparks',
-        imageSize: '16 КБ',
-        instagram: 'https://www.instagram.com/p/Cv-ZI0mtPJ5/'
-    },
-    '51.66614,39.20707': {
-        address: 'напротив стендап-клуба в «Коммуне»',
-        image: 'black-white-bird',
-        imageSize: '26 КБ',
-        instagram: 'https://www.instagram.com/p/DKSOsRbK951/'
-    },
-    '51.66624,39.20619': {
-        address: 'проспект Революции, 43, в арке',
-        image: 'woodpecker',
-        imageSize: '29 КБ',
-        instagram: 'https://www.instagram.com/p/DKe-QDWq5aZ/'
-    },
-    '51.66836,39.20234': {
-        address: 'Никитинский сквер, у граффити с котёнком с улицы Лизюкова',
-        image: 'blue-bird-nikitin',
-        imageSize: '9 КБ',
-        instagram: 'https://www.instagram.com/p/DKkLcGkKZuL/'
-    },
-    '51.66108,39.19854': {
-        image: 'elephant-center',
-        imageSize: '18 КБ',
-        instagram: 'https://www.instagram.com/p/DQeB5UNinGz/'
-    },
-    '51.66627,39.20285': {
-        address: 'ул. Карла Маркса, 78',
-        image: 'yellow-bird',
-        imageSize: '16 КБ',
-        instagram: 'https://www.instagram.com/p/DPbmDhTii76/'
-    },
-    '51.67774,39.22439': {
-        address: 'ул. Дурова, 7',
-        image: 'lion',
-        imageSize: '25 КБ',
-        instagram: 'https://www.instagram.com/p/DOeVhSJijdQ/'
-    },
-    '51.67776,39.22581': {
-        address: 'бетонная стена около ул. Дурова, 1',
-        image: 'mouse-zebra',
-        imageSize: '21 КБ',
-        instagram: 'https://www.instagram.com/p/DOYPRrBCmNm/'
-    },
-    '51.67787,39.22608': {
-        address: 'забор у дома-музея А. Л. Дурова',
-        image: 'zebra-voronezh',
-        imageSize: '38 КБ',
-        instagram: 'https://www.instagram.com/p/DOTcZW3Cor8/'
-    },
-    '51.67773,39.22172': {
-        address: 'ул. Дурова, забор у дома 21',
-        image: 'bear',
-        imageSize: '36 КБ',
-        instagram: 'https://www.instagram.com/p/DOOhfF2Cpyu/'
-    },
-    '51.67773,39.21861': {
-        address: 'ул. Сакко и Ванцетти, забор у дома 67',
-        image: 'elephant-north',
-        imageSize: '22 КБ',
-        instagram: 'https://www.instagram.com/p/DOIoCC7ipQu/'
-    }
-};
-
-function getCoordinateKey(marker) {
-    return marker.coords.map((coordinate) => coordinate.toFixed(5)).join(',');
-}
-
-mosaicMarkers.forEach((marker) => Object.assign(
-    marker,
-    PHOTO_BY_COORDINATES[getCoordinateKey(marker)] || PHOTO_LIBRARY[marker.popupText] || {}
-));
-
-function getCity(marker) {
-    const latitude = marker.coords[0];
-    if (latitude < 53) return 'voronezh';
-    if (latitude < 55.5) return 'kolomna';
-    return 'moscow';
-}
 
 function getStatus(marker) {
-    const name = marker.popupText.toLowerCase();
-    if (name.includes('закраш')) return { key: 'muted', label: 'Закрашена' };
-    if (name.includes('разруш')) return { key: 'muted', label: 'Частично разрушена' };
-    return { key: 'active', label: marker.image ? 'Есть фотография' : 'Точка на карте' };
+    if (marker.status === 'active' && marker.photo) {
+        return { key: 'active', label: 'Есть фотография' };
+    }
+
+    return STATUS_CONFIG[marker.status] || STATUS_CONFIG.active;
 }
 
 function escapeHtml(value) {
@@ -171,29 +27,41 @@ function escapeHtml(value) {
 
 class MosaicMap {
     constructor() {
-        this.activeCity = 'voronezh';
+        const requestedId = new URL(location.href).searchParams.get('mosaic');
+        this.initialMosaic = mosaicMarkers.find(({ id }) => id === requestedId) || null;
+        this.activeCity = this.initialMosaic?.city || 'voronezh';
         this.activeMarker = null;
         this.markerEntries = [];
         this.details = document.querySelector('#details');
         this.resultCount = document.querySelector('#result-count');
         this.searchInput = document.querySelector('#search-input');
         this.connectionStatus = document.querySelector('#connection-status');
+        this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         this.createMap();
         this.drawMarkers();
         this.bindControls();
+        this.updateCityControls();
         this.updateCityCounts();
         this.updateConnectionStatus();
         this.filterMarkers();
+
+        if (this.initialMosaic) {
+            const entry = this.markerEntries.find(({ data }) => data.id === this.initialMosaic.id);
+            if (entry) this.selectMarker(entry.marker, entry.data, { updateUrl: false, focusDetails: false });
+        }
     }
 
     createMap() {
-        const start = CITY_CONFIG[this.activeCity];
+        const city = CITY_CONFIG[this.activeCity];
+        const center = this.initialMosaic?.coords || city.center;
+        const zoom = this.initialMosaic ? Math.max(city.zoom, 16) : city.zoom;
+
         this.map = L.map('mapid', {
             zoomControl: false,
             preferCanvas: true,
             minZoom: 3
-        }).setView(start.center, start.zoom);
+        }).setView(center, zoom);
         this.map.attributionControl.setPrefix(false);
 
         L.control.zoom({ position: 'topleft' }).addTo(this.map);
@@ -205,17 +73,35 @@ class MosaicMap {
             updateWhenIdle: true,
             updateWhenZooming: false
         }).addTo(this.map);
+
+        this.map.on('click', ({ latlng }) => this.logNewMarkerCoordinates(latlng));
+    }
+
+    logNewMarkerCoordinates(latlng) {
+        const latitude = Number(latlng.lat.toFixed(7));
+        const longitude = Number(latlng.lng.toFixed(7));
+        const markerTemplate = `{
+    id: '${this.activeCity}-new-mosaic', city: '${this.activeCity}',
+    coords: [${latitude}, ${longitude}],
+    title: 'Название мозаики', status: 'active'
+},`;
+
+        console.group('Новая точка мозаики');
+        console.log('Координаты:', latitude, longitude);
+        console.log(markerTemplate);
+        console.groupEnd();
     }
 
     createIcon(marker, isActive = false) {
         const status = getStatus(marker);
         const classes = [
             'mosaic-marker',
-            marker.image ? 'mosaic-marker--photo' : '',
+            marker.photo ? 'mosaic-marker--photo' : '',
             status.key === 'muted' ? 'mosaic-marker--muted' : '',
+            status.key === 'unconfirmed' ? 'mosaic-marker--unconfirmed' : '',
             isActive ? 'is-active' : ''
         ].filter(Boolean).join(' ');
-        const size = marker.image ? 34 : 28;
+        const size = marker.photo ? 34 : 28;
 
         return L.divIcon({
             className: classes,
@@ -228,16 +114,17 @@ class MosaicMap {
 
     drawMarkers() {
         mosaicMarkers.forEach((data) => {
-            data.city = getCity(data);
             const marker = L.marker(data.coords, {
                 icon: this.createIcon(data),
                 keyboard: true,
-                title: data.popupText,
-                alt: `Мозаика «${data.popupText}»`
+                bubblingMouseEvents: false,
+                title: data.title,
+                alt: `Мозаика «${data.title}»`
             });
 
-            marker.bindTooltip(data.popupText, { direction: 'top', offset: [0, -9] });
+            marker.bindTooltip(data.title, { direction: 'top', offset: [0, -9] });
             marker.on('click', () => this.selectMarker(marker, data));
+            marker.on('add', () => this.setMarkerPressed(marker, this.activeMarker?.data.id === data.id));
             this.markerEntries.push({ marker, data });
         });
     }
@@ -250,18 +137,35 @@ class MosaicMap {
         this.searchInput.addEventListener('input', () => this.filterMarkers());
         window.addEventListener('online', () => this.updateConnectionStatus());
         window.addEventListener('offline', () => this.updateConnectionStatus());
+        window.addEventListener('popstate', () => this.syncFromUrl());
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && this.activeMarker) this.closeDetails();
+        });
     }
 
     setCity(city) {
+        if (!CITY_CONFIG[city]) return;
+
         this.activeCity = city;
-        document.querySelectorAll('.city-button').forEach((button) => {
-            button.classList.toggle('is-active', button.dataset.city === city);
-        });
+        this.updateCityControls();
 
         const config = CITY_CONFIG[city];
-        this.map.flyTo(config.center, config.zoom, { duration: 0.65 });
-        this.closeDetails();
+        if (this.prefersReducedMotion) {
+            this.map.setView(config.center, config.zoom, { animate: false });
+        } else {
+            this.map.flyTo(config.center, config.zoom, { duration: 0.65 });
+        }
+
+        this.closeDetails({ restoreFocus: false });
         this.filterMarkers();
+    }
+
+    updateCityControls() {
+        document.querySelectorAll('.city-button').forEach((button) => {
+            const isActive = button.dataset.city === this.activeCity;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
     }
 
     filterMarkers() {
@@ -270,7 +174,7 @@ class MosaicMap {
         let cityCount = 0;
 
         this.markerEntries.forEach(({ marker, data }) => {
-            const searchable = `${data.popupText} ${data.address || ''}`.toLocaleLowerCase('ru');
+            const searchable = `${data.title} ${data.address || ''}`.toLocaleLowerCase('ru');
             const shouldShow = !query || searchable.includes(query);
             const isVisible = this.map.hasLayer(marker);
 
@@ -303,44 +207,57 @@ class MosaicMap {
         return forms[2];
     }
 
-    selectMarker(marker, data) {
-        if (this.activeMarker) {
+    selectMarker(marker, data, { updateUrl = true, focusDetails = true } = {}) {
+        if (this.activeMarker && this.activeMarker.data.id !== data.id) {
+            this.activeMarker.marker.closeTooltip();
             this.activeMarker.marker.setIcon(this.createIcon(this.activeMarker.data));
+            this.activeMarker.marker.setZIndexOffset(0);
+            this.setMarkerPressed(this.activeMarker.marker, false);
         }
 
         this.activeMarker = { marker, data };
         marker.setIcon(this.createIcon(data, true));
-        this.renderDetails(data);
+        marker.setZIndexOffset(1000);
+        this.setMarkerPressed(marker, true);
+        this.renderDetails(data, { focusDetails });
+        if (updateUrl) this.setMosaicUrl(data.id, 'push');
     }
 
-    renderDetails(data) {
+    setMarkerPressed(marker, isPressed) {
+        marker.getElement()?.setAttribute('aria-pressed', String(isPressed));
+    }
+
+    renderDetails(data, { focusDetails = true } = {}) {
         const status = getStatus(data);
-        const photoMarkup = data.image ? this.getPhotoMarkup(data) : '';
-        const instagramMarkup = data.instagram
-            ? `<a class="details__instagram" href="${data.instagram}" target="_blank" rel="noopener noreferrer">Смотреть в Instagram ↗</a>`
-            : '';
-        const creditMarkup = data.credit
-            ? `<p class="details__credit">${escapeHtml(data.credit)}</p>`
+        const photoMarkup = data.photo ? this.getPhotoMarkup(data) : '';
+        const instagramMarkup = data.instagramUrl
+            ? `<a class="details__instagram" href="${escapeHtml(data.instagramUrl)}" target="_blank" rel="noopener noreferrer">Смотреть в Instagram ↗</a>`
             : '';
         const address = data.address || 'Точное место отмечено на карте';
         const coordinates = data.coords.map((value) => value.toFixed(5)).join(', ');
 
         this.details.classList.remove('is-empty');
+        this.details.removeAttribute('aria-label');
+        this.details.setAttribute('aria-labelledby', 'details-title');
         this.details.innerHTML = `
             ${photoMarkup}
             <div class="details__body">
                 <button class="details__close" type="button" aria-label="Закрыть карточку">×</button>
                 <p class="details__status">${escapeHtml(status.label)}</p>
-                <h2 class="details__title">${escapeHtml(data.popupText)}</h2>
+                <h2 id="details-title" class="details__title" tabindex="-1">${escapeHtml(data.title)}</h2>
                 <p class="details__address">${escapeHtml(address)}</p>
-                ${creditMarkup}
                 <div class="details__actions">
                     ${instagramMarkup}
-                    <span class="details__coord">${coordinates}</span>
+                    <button class="details__share" type="button">Скопировать ссылку</button>
+                    <span class="details__coord" aria-label="Координаты: ${coordinates}">${coordinates}</span>
                 </div>
+                <span class="details__share-status visually-hidden" aria-live="polite"></span>
             </div>`;
 
         this.details.querySelector('.details__close').addEventListener('click', () => this.closeDetails());
+        this.details.querySelector('.details__share').addEventListener('click', (event) => {
+            this.copyMosaicLink(data.id, event.currentTarget);
+        });
 
         const photoButton = this.details.querySelector('.photo-load-button');
         if (photoButton) {
@@ -351,6 +268,10 @@ class MosaicMap {
         } else {
             this.bindImageState();
         }
+
+        if (focusDetails) {
+            requestAnimationFrame(() => this.details.querySelector('#details-title')?.focus({ preventScroll: true }));
+        }
     }
 
     getPhotoMarkup(data) {
@@ -360,7 +281,7 @@ class MosaicMap {
 
         if (shouldWait) {
             return `<div class="details__photo-wrap">
-                <button class="photo-load-button" type="button"><span>Показать фото · ${escapeHtml(data.imageSize)}</span></button>
+                <button class="photo-load-button" type="button"><span>Показать фото · ${escapeHtml(data.photo.sizeLabel)}</span></button>
             </div>`;
         }
 
@@ -368,8 +289,8 @@ class MosaicMap {
     }
 
     getImageMarkup(data, lowBandwidth = false) {
-        const title = escapeHtml(data.popupText);
-        const base = `assets/mosaics/${data.image}`;
+        const title = escapeHtml(data.title);
+        const base = `assets/mosaics/${data.photo.filename}`;
         const responsiveSource = lowBandwidth
             ? ''
             : ` srcset="${base}-320.webp 320w, ${base}-640.webp 640w" sizes="(max-width: 700px) calc(100vw - 20px), 370px"`;
@@ -396,13 +317,73 @@ class MosaicMap {
         if (image.complete && image.naturalWidth) finish();
     }
 
-    closeDetails() {
+    async copyMosaicLink(id, button) {
+        const url = this.getMosaicUrl(id).href;
+        const status = this.details.querySelector('.details__share-status');
+
+        try {
+            if (!navigator.clipboard) throw new Error('Clipboard API unavailable');
+            await navigator.clipboard.writeText(url);
+            button.textContent = 'Ссылка скопирована';
+            if (status) status.textContent = 'Ссылка на мозаику скопирована';
+        } catch {
+            button.textContent = 'Ссылка в адресной строке';
+            if (status) status.textContent = 'Не удалось скопировать автоматически. Ссылка открыта в адресной строке.';
+        }
+
+        window.setTimeout(() => {
+            if (button.isConnected) button.textContent = 'Скопировать ссылку';
+        }, 2400);
+    }
+
+    getMosaicUrl(id) {
+        const url = new URL(location.href);
+        url.searchParams.set('mosaic', id);
+        return url;
+    }
+
+    setMosaicUrl(id, mode = 'replace') {
+        const url = new URL(location.href);
+        if (id) {
+            url.searchParams.set('mosaic', id);
+        } else {
+            url.searchParams.delete('mosaic');
+        }
+
+        if (url.href !== location.href) history[`${mode}State`]({ mosaic: id || null }, '', url);
+    }
+
+    syncFromUrl() {
+        const id = new URL(location.href).searchParams.get('mosaic');
+        const entry = this.markerEntries.find(({ data }) => data.id === id);
+
+        if (!entry) {
+            this.closeDetails({ restoreFocus: false, updateUrl: false });
+            return;
+        }
+
+        this.activeCity = entry.data.city;
+        this.updateCityControls();
+        const zoom = Math.max(CITY_CONFIG[this.activeCity].zoom, 16);
+        this.map.setView(entry.data.coords, zoom, { animate: false });
+        this.selectMarker(entry.marker, entry.data, { updateUrl: false });
+        this.filterMarkers();
+    }
+
+    closeDetails({ restoreFocus = true, updateUrl = true } = {}) {
+        const markerToFocus = this.activeMarker?.marker || null;
+
         if (this.activeMarker) {
+            this.activeMarker.marker.closeTooltip();
             this.activeMarker.marker.setIcon(this.createIcon(this.activeMarker.data));
+            this.activeMarker.marker.setZIndexOffset(0);
+            this.setMarkerPressed(this.activeMarker.marker, false);
             this.activeMarker = null;
         }
 
         this.details.classList.add('is-empty');
+        this.details.removeAttribute('aria-labelledby');
+        this.details.setAttribute('aria-label', 'Информация о мозаике');
         this.details.innerHTML = `
             <div class="details__empty">
                 <span class="details__spark" aria-hidden="true">✦</span>
@@ -411,6 +392,11 @@ class MosaicMap {
                     <p>У отмеченных цветом меток есть фотографии.</p>
                 </div>
             </div>`;
+
+        if (updateUrl) this.setMosaicUrl(null);
+        if (restoreFocus && markerToFocus && this.map.hasLayer(markerToFocus)) {
+            requestAnimationFrame(() => markerToFocus.getElement()?.focus({ preventScroll: true }));
+        }
     }
 
     updateConnectionStatus() {
@@ -427,7 +413,13 @@ function startMosaicMap() {
     new MosaicMap();
 
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-        window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js').catch(() => {
+                const status = document.querySelector('#connection-status');
+                status.textContent = 'Офлайн-режим временно недоступен';
+                status.hidden = false;
+            });
+        });
     }
 }
 

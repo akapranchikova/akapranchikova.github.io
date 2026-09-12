@@ -263,7 +263,8 @@ h1 {
     bottom: max(18px, env(safe-area-inset-bottom));
     left: max(18px, env(safe-area-inset-left));
     width: min(370px, calc(100vw - 36px));
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 22px;
     background: rgba(255, 253, 248, 0.97);
@@ -401,6 +402,7 @@ h1 {
 
 .details__actions {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 12px;
     margin-top: 14px;
@@ -421,6 +423,24 @@ h1 {
 
 .details__instagram:hover {
     background: var(--accent-dark);
+}
+
+.details__share {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    background: var(--paper);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.details__share:hover {
+    border-color: var(--accent);
 }
 
 .details__coord {
@@ -488,10 +508,32 @@ h1 {
     background: #847d75;
 }
 
+.mosaic-marker--unconfirmed .mosaic-marker__shape {
+    background: #b27624;
+}
+
 .mosaic-marker.is-active .mosaic-marker__shape,
 .mosaic-marker:hover .mosaic-marker__shape {
     background: var(--accent-dark);
     transform: rotate(-45deg) scale(1.16);
+}
+
+.instagram-link:focus-visible,
+.details__close:focus-visible,
+.details__instagram:focus-visible,
+.details__share:focus-visible,
+.photo-load-button:focus-visible,
+.leaflet-control-zoom a:focus-visible {
+    outline: 3px solid rgba(232, 85, 55, 0.4);
+    outline-offset: 2px;
+}
+
+.details__title:focus {
+    outline: none;
+}
+
+.mosaic-marker:focus-visible .mosaic-marker__shape {
+    box-shadow: 0 0 0 4px rgba(232, 85, 55, 0.34), 0 3px 8px rgba(37, 34, 31, 0.34);
 }
 
 .leaflet-control-zoom {
@@ -595,6 +637,11 @@ h1 {
     }
 
     .map-summary {
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+
+    .photo-key {
         display: none;
     }
 

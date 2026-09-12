@@ -29,9 +29,9 @@
         <p class="intro">Нажмите на метку, чтобы увидеть работу и найти её в городе.</p>
 
         <div class="city-switcher" role="group" aria-label="Выбрать город">
-            <button class="city-button is-active" type="button" data-city="voronezh">Воронеж <span class="city-count"></span></button>
-            <button class="city-button" type="button" data-city="kolomna">Коломна <span class="city-count"></span></button>
-            <button class="city-button" type="button" data-city="moscow">Москва <span class="city-count"></span></button>
+            <button class="city-button is-active" type="button" data-city="voronezh" aria-pressed="true">Воронеж <span class="city-count"></span></button>
+            <button class="city-button" type="button" data-city="kolomna" aria-pressed="false">Коломна <span class="city-count"></span></button>
+            <button class="city-button" type="button" data-city="moscow" aria-pressed="false">Москва <span class="city-count"></span></button>
         </div>
 
         <label class="search">
@@ -47,7 +47,7 @@
     </section>
 
     <div id="connection-status" class="connection-status" role="status" hidden>
-        Нет сети — показываем сохранённую карту
+        Нет сети — доступны ранее открытые области карты
     </div>
 
     <section id="mapid" aria-label="Интерактивная карта мозаик"></section>
