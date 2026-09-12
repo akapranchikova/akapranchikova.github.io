@@ -99,6 +99,19 @@ a {
     text-transform: uppercase;
 }
 
+.details__status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.details__new {
+    padding: 3px 6px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    line-height: 1;
+}
+
 h1 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
@@ -496,6 +509,23 @@ h1 {
     border-radius: 50%;
     background: var(--paper);
     content: "";
+}
+
+.mosaic-marker__new {
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    display: grid;
+    width: 18px;
+    height: 18px;
+    place-items: center;
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    color: var(--accent-dark);
+    background: var(--paper);
+    box-shadow: 0 2px 6px rgba(37, 34, 31, 0.3);
+    font-size: 10px;
+    line-height: 1;
 }
 
 .mosaic-marker--photo .mosaic-marker__shape {

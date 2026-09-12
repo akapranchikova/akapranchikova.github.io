@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'mosaic-map-';
-const STATIC_CACHE = `${CACHE_PREFIX}static-v11`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v12`;
 const IMAGE_CACHE = `${CACHE_PREFIX}images-v1`;
 const TILE_CACHE = `${CACHE_PREFIX}tiles-v1`;
 const CURRENT_CACHES = [STATIC_CACHE, IMAGE_CACHE, TILE_CACHE];

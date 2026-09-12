@@ -97,15 +97,19 @@ class MosaicMap {
         const classes = [
             'mosaic-marker',
             marker.photo ? 'mosaic-marker--photo' : '',
+            marker.isNew ? 'mosaic-marker--new' : '',
             status.key === 'muted' ? 'mosaic-marker--muted' : '',
             status.key === 'unconfirmed' ? 'mosaic-marker--unconfirmed' : '',
             isActive ? 'is-active' : ''
         ].filter(Boolean).join(' ');
         const size = marker.photo ? 34 : 28;
+        const newMarkup = marker.isNew
+            ? '<span class="mosaic-marker__new" aria-hidden="true">✦</span>'
+            : '';
 
         return L.divIcon({
             className: classes,
-            html: '<span class="mosaic-marker__shape" aria-hidden="true"></span>',
+            html: `<span class="mosaic-marker__shape" aria-hidden="true"></span>${newMarkup}`,
             iconSize: [size, size],
             iconAnchor: [size / 2, size],
             tooltipAnchor: [0, -size + 5]
@@ -229,6 +233,7 @@ class MosaicMap {
 
     renderDetails(data, { focusDetails = true } = {}) {
         const status = getStatus(data);
+        const newMarkup = data.isNew ? '<span class="details__new">Новое</span>' : '';
         const photoMarkup = data.photo ? this.getPhotoMarkup(data) : '';
         const instagramMarkup = data.instagramUrl
             ? `<a class="details__instagram" href="${escapeHtml(data.instagramUrl)}" target="_blank" rel="noopener noreferrer">Смотреть в Instagram ↗</a>`
@@ -243,7 +248,7 @@ class MosaicMap {
             ${photoMarkup}
             <div class="details__body">
                 <button class="details__close" type="button" aria-label="Закрыть карточку">×</button>
-                <p class="details__status">${escapeHtml(status.label)}</p>
+                <p class="details__status">${newMarkup}<span>${escapeHtml(status.label)}</span></p>
                 <h2 id="details-title" class="details__title" tabindex="-1">${escapeHtml(data.title)}</h2>
                 <p class="details__address">${escapeHtml(address)}</p>
                 <div class="details__actions">

@@ -309,13 +309,28 @@ const mosaicMarkers = [
     {
         id: 'voronezh-chameleon', city: 'voronezh',
         coords: [51.6740854, 39.2096016],
-        title: 'Хамелеон', status: 'active',
+        title: 'Хамелеон', status: 'active', isNew: true,
         photo: { filename: 'chameleon', sizeLabel: '33 КБ' },
         instagramUrl: 'https://www.instagram.com/p/DdHf3k7imUa/?img_index=1'
     },
     {
         id: 'bird-yellow-3', city: 'voronezh',
         coords: [51.6713109, 39.212831],
-        title: 'Птичка желтая', status: 'active'
+        title: 'Птичка желтая', status: 'active', isNew: true
+    },
+    {
+        id: 'golub', city: 'voronezh',
+        coords: [51.6711496, 39.2129436],
+        title: 'Голубь', status: 'active', isNew: true
+    },
+    {
+        id: 'dog-blue', city: 'voronezh',
+        coords: [51.6706871, 39.2161435],
+        title: 'Собака', status: 'active', isNew: true
+    },
+    {
+        id: 'wolf-vgu', city: 'voronezh',
+        coords: [51.6594125, 39.2126969],
+        title: 'Волк', status: 'active' , isNew: true
     },
 ];
